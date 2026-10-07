@@ -2,2173 +2,2224 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta
- name="viewport"
- content="width=device-width, initial-scale=1.0, viewport-fit=cover"
->
-<meta
- name="theme-color"
- content="#fff8f5"
->
-<meta
- name="description"
- content="Uma pequena declaração de Mayron para Paula."
->
-<title>Paula & Mayron ❤️</title>
- 
+<meta name="viewport" 
+content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Paula & Mayron — nossa história, 
+memórias, música, quiz e arquivo confidencial.">
+<title>Paula & Mayron </title>
 <style>
-/* =====================================================
-  BASE
-===================================================== */
-:root {
+:root{
  --bg:#fff9f6;
  --paper:#fffdfb;
  --ink:#352a2b;
- --muted:#806f72;
+ --muted:#7d6d70;
  --rose:#d98f9c;
- --rose-light:#f3d5d9;
- --rose-soft:#f9e7e8;
+ --rose2:#f3d5d9;
  --wine:#7d3d4a;
- --wine-dark:#2f292b;
  --gold:#b58a55;
- --gold-light:#d9b77f;
- --white:#ffffff;
- --shadow:
-   0 25px 70px rgba(78,42,48,.13);
- --radius:14px;
+ --gold2:#e2c28f;
+ --shadow:0 20px 70px rgba(78,42,48,.13);
+ --soft:0 10px 35px rgba(78,42,48,.09);
+ --max:1120px;
 }
-* {
+*{
  box-sizing:border-box;
-}
-html {
- scroll-behavior:smooth;
-}
-body {
  margin:0;
- background:var(--bg);
+ padding:0;
+}
+html{
+ scroll-behavior:smooth;
+ scroll-padding-top:90px;
+}
+body{
+ font-family:Georgia,serif;
  color:var(--ink);
- font-family:
-   Inter,
-   ui-sans-serif,
-   system-ui,
-   -apple-system,
-   BlinkMacSystemFont,
-   "Segoe UI",
-   sans-serif;
+ background:
+ radial-gradient(circle at 10% 10%,#d98f9c1a,transparent 25%),
+ radial-gradient(circle at 90% 35%,#b58a5514,transparent 25%),
+ var(--bg);
+ line-height:1.75;
  overflow-x:hidden;
 }
-/* =====================================================
-  TEXTURA
-===================================================== */
-body::before {
- content:"";
- position:fixed;
- inset:0;
- pointer-events:none;
- z-index:9999;
- opacity:.22;
- background-image:
-   radial-gradient(
-     #c99 0.6px,
-     transparent .7px
-   );
- background-size:18px 18px;
- mask-image:
-   linear-gradient(
-     to bottom,
-     black,
-     transparent 85%
-   );
-}
-/* =====================================================
-  BARRA DE PROGRESSO
-===================================================== */
-.progress-bar {
- position:fixed;
- top:0;
- left:0;
- width:0%;
- height:3px;
- background:
-   linear-gradient(
-     90deg,
-     var(--rose),
-     var(--gold)
-   );
- z-index:10000;
- transition:width .1s linear;
-}
-/* =====================================================
-  NAVEGAÇÃO
-===================================================== */
-.top-nav {
- position:fixed;
- top:18px;
- left:50%;
- transform:translateX(-50%);
- z-index:9000;
- display:flex;
- align-items:center;
- gap:8px;
- padding:7px;
- border:1px solid rgba(125,61,74,.1);
- background:rgba(255,253,251,.72);
- backdrop-filter:blur(14px);
- -webkit-backdrop-filter:blur(14px);
- border-radius:50px;
- box-shadow:
-   0 10px 35px rgba(80,40,45,.08);
- opacity:0;
- pointer-events:none;
- transition:
-   opacity .4s ease,
-   transform .4s ease;
-}
-.top-nav.visible {
- opacity:1;
- pointer-events:auto;
-}
-.top-nav a {
- width:34px;
- height:34px;
- display:grid;
- place-items:center;
- border-radius:50%;
+a{
+ color:inherit;
  text-decoration:none;
- color:var(--wine);
- font-size:.85rem;
- transition:.25s ease;
 }
-.top-nav a:hover {
- background:var(--rose-soft);
- transform:scale(1.08);
+button{
+ font:inherit;
+ cursor:pointer;
 }
-/* =====================================================
-  CORAÇÕES FLUTUANTES
-===================================================== */
-.floating-heart {
- position:fixed;
- pointer-events:none;
- z-index:5;
- color:var(--rose);
- opacity:0;
- animation:
-   floatHeart 7s linear forwards;
+.container{
+ width:min(calc(100% - 36px),var(--max));
+ margin:auto;
 }
-@keyframes floatHeart {
- 0% {
-   transform:
-     translateY(30px)
-     scale(.7)
-     rotate(0deg);
-   opacity:0;
- }
- 15% {
-   opacity:.5;
- }
- 85% {
-   opacity:.25;
- }
- 100% {
-   transform:
-     translateY(-100vh)
-     scale(1.2)
-     rotate(30deg);
-   opacity:0;
- }
+.section{
+ padding:100px 0;
 }
-/* =====================================================
-  HERO
-===================================================== */
-.hero {
- min-height:100svh;
- display:grid;
- place-items:center;
- padding:
-   90px 20px
-   80px;
- position:relative;
- overflow:hidden;
-}
-.hero::before {
- content:"";
- position:absolute;
- width:750px;
- height:750px;
- border-radius:50%;
- background:
-   radial-gradient(
-     circle,
-     rgba(243,213,217,.8),
-     transparent 68%
-   );
- left:-350px;
- bottom:-350px;
- filter:blur(5px);
-}
-.hero::after {
- content:"";
- position:absolute;
- width:700px;
- height:700px;
- border-radius:50%;
- background:
-   radial-gradient(
-     circle,
-     rgba(243,213,217,.9),
-     transparent 68%
-   );
- right:-330px;
- top:-260px;
-}
-.hero-inner {
- width:min(1100px,100%);
- display:grid;
- grid-template-columns:
-   1fr 1fr;
- gap:65px;
- align-items:center;
- position:relative;
- z-index:2;
-}
-.hero-copy {
- animation:
-   heroText 1.1s ease both;
-}
-@keyframes heroText {
- from {
-   opacity:0;
-   transform:
-     translateY(30px);
- }
- to {
-   opacity:1;
-   transform:none;
- }
-}
-.kicker {
- letter-spacing:.24em;
+.eyebrow{
+ font:800 .72rem/1 Arial,sans-serif;
+ letter-spacing:.18em;
  text-transform:uppercase;
  color:var(--wine);
- font-size:.7rem;
- font-weight:800;
 }
-h1 {
- font-family:Georgia,serif;
- font-size:
-   clamp(3.8rem,9vw,7.8rem);
- line-height:.82;
- margin:22px 0;
+.heading{
+ max-width:760px;
+ margin:0 auto 52px;
+ text-align:center;
+}
+.heading h2{
+ margin-top:10px;
  color:var(--wine);
- font-weight:500;
- letter-spacing:-.055em;
+ font-size:clamp(2rem,5vw,3.4rem);
+ line-height:1.1;
 }
-.hero h2 {
- font-size:
-   clamp(1.05rem,2.5vw,1.45rem);
- font-weight:400;
- line-height:1.7;
- max-width:550px;
+.heading p{
+ margin-top:15px;
  color:var(--muted);
 }
-.signature {
- font-family:
-   "Brush Script MT",
-   cursive;
- font-size:2.15rem;
- color:var(--gold);
- margin-top:30px;
+/* =========================
+ PROGRESSO
+========================= */
+.progress{
+ position:fixed;
+ z-index:1000;
+ top:0;
+ left:0;
+ width:0;
+ height:4px;
+ background:linear-gradient(90deg,var(--rose),var(--gold));
 }
-.audio-nav {
+/* =========================
+ NAVEGAÇÃO
+========================= */
+.nav{
+ position:fixed;
+ z-index:999;
+ top:16px;
+ left:50%;
+ transform:translateX(-50%);
+ display:flex;
+ gap:4px;
+ padding:7px;
+ max-width:calc(100% - 20px);
+ overflow:auto;
+ border:1px solid #7d3d4a1a;
+ border-radius:999px;
+ background:#ffffffb8;
+ backdrop-filter:blur(15px);
+ box-shadow:var(--soft);
+}
+.nav a{
+ padding:8px 11px;
+ border-radius:999px;
+ white-space:nowrap;
+ color:var(--muted);
+ font:700 .68rem/1 Arial,sans-serif;
+}
+.nav a:hover{
+ background:var(--rose2);
+ color:var(--wine);
+}
+/* =========================
+ HERO
+========================= */
+.hero{
+ min-height:100svh;
+ padding:125px 0 65px;
+ display:grid;
+ place-items:center;
+ position:relative;
+}
+.heroGrid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:65px;
+ align-items:center;
+}
+.heroCopy{
+ animation:up .9s ease both;
+}
+.hero h1{
+ margin-top:12px;
+ color:var(--wine);
+ font-size:clamp(3.2rem,7vw,6.5rem);
+ line-height:.9;
+ letter-spacing:-.05em;
+}
+.lead{
+ max-width:610px;
+ margin:25px 0;
+ color:var(--muted);
+ font-size:1.1rem;
+}
+.sign{
+ color:var(--wine);
+ font:2rem "Brush Script MT",cursive;
+}
+.actions{
+ display:flex;
+ flex-wrap:wrap;
+ gap:12px;
+ margin-top:28px;
+}
+.btn{
  display:inline-flex;
  align-items:center;
+ justify-content:center;
  gap:8px;
- margin-top:25px;
+ min-height:46px;
+ padding:11px 19px;
+ border:1px solid #7d3d4a22;
+ border-radius:999px;
+ background:white;
  color:var(--wine);
- text-decoration:none;
- font-size:.78rem;
- font-weight:800;
- letter-spacing:.1em;
- text-transform:uppercase;
- border-bottom:1px solid var(--gold);
- padding-bottom:7px;
- transition:.3s ease;
+ font:800 .75rem/1 Arial,sans-serif;
+ box-shadow:var(--soft);
+ transition:.25s;
 }
-.audio-nav:hover {
- letter-spacing:.14em;
+.btn:hover{
+ transform:translateY(-3px);
+ box-shadow:var(--shadow);
 }
-/* =====================================================
-  FOTO HERO
-===================================================== */
-.hero-photo {
+.btn.primary{
+ background:var(--wine);
+ border-color:var(--wine);
+ color:#fff;
+}
+.heroPhoto{
  position:relative;
- max-width:460px;
- justify-self:center;
- transform:
-   rotate(2.2deg);
- filter:
-   drop-shadow(
-     0 30px 35px rgba(70,30,40,.2)
-   );
- animation:
-   heroPhoto 1.2s .15s ease both;
+ width:min(100%,520px);
+ margin:auto;
+ animation:photo .9s .1s ease both;
 }
-@keyframes heroPhoto {
- from {
-   opacity:0;
-   transform:
-     translateY(40px)
-     rotate(7deg)
-     scale(.94);
- }
- to {
-   opacity:1;
-   transform:
-     rotate(2.2deg);
- }
+.heroPhoto:before{
+ content:"";
+ position:absolute;
+ inset:-18px;
+ border:1px solid #b58a5555;
+ border-radius:50%;
+ transform:rotate(-5deg);
 }
-.hero-photo img {
+.heroPhoto img{
+ position:relative;
+ z-index:1;
  width:100%;
  aspect-ratio:4/5;
  object-fit:cover;
- border:14px solid white;
- border-bottom-width:48px;
+ border-radius:28px 28px 120px 28px;
  box-shadow:var(--shadow);
  display:block;
 }
-.hero-photo::before {
- content:"♡";
+.note{
  position:absolute;
- left:-32px;
- top:-35px;
- font-size:55px;
- color:var(--rose);
  z-index:2;
- transform:rotate(-15deg);
+ right:-20px;
+ bottom:22px;
+ max-width:210px;
+ padding:14px 17px;
+ border-radius:16px;
+ background:#fffdfbf0;
+ box-shadow:var(--soft);
+ color:var(--wine);
+ font-size:.88rem;
+ line-height:1.4;
+ transform:rotate(2deg);
 }
-.hero-photo::after {
- content:"♡";
- position:absolute;
- right:-27px;
- bottom:4px;
- font-size:50px;
- color:var(--rose);
- z-index:2;
- transform:rotate(15deg);
-}
-.scroll {
- position:absolute;
- bottom:28px;
- left:50%;
- transform:
-   translateX(-50%);
- font-size:.68rem;
- color:var(--muted);
- letter-spacing:.14em;
- text-transform:uppercase;
- z-index:3;
- animation:
-   scrollHint 2s infinite;
-}
-@keyframes scrollHint {
- 0%,100% {
-   transform:
-     translateX(-50%)
-     translateY(0);
- }
- 50% {
-   transform:
-     translateX(-50%)
-     translateY(7px);
- }
-}
-/* =====================================================
-  SEÇÕES
-===================================================== */
-.section {
- padding:
-   125px 20px;
-}
-.container {
- width:min(1100px,100%);
- margin:auto;
-}
-.center {
+.scroll{
+ margin-top:65px;
  text-align:center;
-}
-.eyebrow {
- color:var(--wine);
- font-weight:800;
- letter-spacing:.16em;
- text-transform:uppercase;
- font-size:.68rem;
-}
-.section h2 {
- font-family:Georgia,serif;
- font-weight:500;
- font-size:
-   clamp(2.5rem,6vw,4.6rem);
- line-height:1;
- margin:
-   15px 0 20px;
- color:var(--wine);
- letter-spacing:-.03em;
-}
-.lead {
- max-width:680px;
- margin:0 auto;
  color:var(--muted);
- font-size:1.05rem;
- line-height:1.85;
+ font:700 .68rem/1 Arial,sans-serif;
+ letter-spacing:.15em;
+ text-transform:uppercase;
+ animation:breathe 2.2s infinite;
 }
-.heart-line {
- display:flex;
- align-items:center;
- gap:15px;
- justify-content:center;
- margin:30px 0;
- color:var(--rose);
-}
-.heart-line::before,
-.heart-line::after {
- content:"";
- height:1px;
- background:#e7c5c9;
- width:90px;
-}
-/* =====================================================
-  GALERIA
-===================================================== */
-.gallery {
+/* =========================
+ GALERIA
+========================= */
+.gallery{
  display:grid;
- grid-template-columns:
-   repeat(2,1fr);
- gap:
-   80px 45px;
- margin-top:80px;
+ grid-template-columns:repeat(2,1fr);
+ gap:24px;
 }
-.memory {
+.memory{
+ padding:14px;
+ border:1px solid #7d3d4a12;
+ border-radius:22px;
  background:var(--paper);
+ box-shadow:var(--soft);
+ transition:.4s;
+}
+.memory:nth-child(even){
+ transform:translateY(35px);
+}
+.memory:hover{
+ transform:translateY(-8px);
  box-shadow:var(--shadow);
- border-radius:var(--radius);
+}
+.memory:nth-child(even):hover{
+ transform:translateY(27px);
+}
+.photo{
+ aspect-ratio:4/3;
  overflow:hidden;
- transition:
-   transform .5s ease,
-   box-shadow .5s ease;
- position:relative;
-}
-.memory:hover {
- transform:
-   translateY(-8px)
-   rotate(.2deg);
- box-shadow:
-   0 35px 80px rgba(78,42,48,.18);
-}
-.memory:nth-child(even) {
- transform:
-   translateY(65px)
-   rotate(-.3deg);
-}
-.memory:nth-child(even):hover {
- transform:
-   translateY(57px)
-   rotate(0deg);
-}
-.photo-wrap {
- aspect-ratio:4/5;
- overflow:hidden;
- background:#eee;
+ border-radius:16px;
+ background:var(--rose2);
  cursor:zoom-in;
- position:relative;
 }
-.photo-wrap::after {
- content:"＋";
- position:absolute;
- right:15px;
- bottom:15px;
- width:34px;
- height:34px;
- display:grid;
- place-items:center;
- border-radius:50%;
- background:
-   rgba(255,255,255,.9);
- color:var(--wine);
- font-size:1.1rem;
- opacity:0;
- transform:scale(.8);
- transition:.3s ease;
-}
-.memory:hover .photo-wrap::after {
- opacity:1;
- transform:scale(1);
-}
-.photo-wrap img {
+.photo img{
  width:100%;
  height:100%;
  object-fit:cover;
  display:block;
- transition:
-   transform .8s cubic-bezier(.2,.7,.2,1);
+ transition:.6s;
 }
-.memory:hover img {
- transform:scale(1.055);
+.memory:hover .photo img{
+ transform:scale(1.05);
 }
-.memory-copy {
- padding:
-   26px 27px 31px;
- position:relative;
+.copy{
+ padding:17px 8px 7px;
 }
-.number {
- font-size:.67rem;
- letter-spacing:.16em;
+.num{
  color:var(--gold);
- font-weight:900;
+ font:800 .68rem/1 Arial,sans-serif;
+ letter-spacing:.18em;
 }
-.memory h3 {
- font-family:Georgia,serif;
- font-size:1.65rem;
- font-weight:500;
+.copy h3{
+ margin-top:7px;
  color:var(--wine);
- margin:
-   9px 0 11px;
+ font-size:1.4rem;
+ line-height:1.15;
 }
-.memory p {
+.copy p{
+ margin-top:9px;
  color:var(--muted);
- line-height:1.8;
- margin:0;
+ font-size:.96rem;
 }
-/* =====================================================
-  LIGHTBOX
-===================================================== */
-.lightbox {
+/* =========================
+ LIGHTBOX
+========================= */
+.lightbox{
  position:fixed;
+ z-index:3000;
  inset:0;
- z-index:20000;
- background:
-   rgba(35,24,27,.94);
- display:flex;
- align-items:center;
- justify-content:center;
+ display:grid;
+ place-items:center;
  padding:25px;
+ background:#201417e8;
+ backdrop-filter:blur(9px);
  opacity:0;
  visibility:hidden;
- transition:
-   opacity .35s ease,
-   visibility .35s ease;
- backdrop-filter:blur(10px);
+ transition:.3s;
 }
-.lightbox.active {
+.lightbox.open{
  opacity:1;
  visibility:visible;
 }
-.lightbox-content {
- max-width:min(900px,95vw);
- max-height:90vh;
- position:relative;
- transform:scale(.92);
- transition:transform .4s ease;
+.lightbox img{
+ max-width:95vw;
+ max-height:88vh;
+ border-radius:18px;
+ box-shadow:0 25px 80px #0006;
 }
-.lightbox.active .lightbox-content {
- transform:scale(1);
-}
-.lightbox img {
- display:block;
- max-width:100%;
- max-height:82vh;
- object-fit:contain;
- border:
-   8px solid white;
- box-shadow:
-   0 30px 100px rgba(0,0,0,.45);
-}
-.lightbox-close {
+.close{
  position:absolute;
- right:-15px;
- top:-15px;
- width:42px;
- height:42px;
+ right:18px;
+ top:18px;
+ width:46px;
+ height:46px;
  border:0;
+ border-radius:50%;
+ background:#fff;
+ color:var(--wine);
+ font-size:1.5rem;
+}
+/* =========================
+ MÚSICA
+========================= */
+.music{
+ max-width:800px;
+ margin:auto;
+ padding:44px;
+ text-align:center;
+ border:1px solid #7d3d4a15;
+ border-radius:30px;
+ background:
+ radial-gradient(circle at 50% 0%,#d98f9c26,transparent 50%),
+ var(--paper);
+ box-shadow:var(--shadow);
+}
+.disc{
+ width:110px;
+ height:110px;
+ margin:0 auto 22px;
+ display:grid;
+ place-items:center;
+ border-radius:50%;
+ background:
+ radial-gradient(
+ circle,
+ var(--gold2) 0 9%,
+ var(--wine) 10% 60%,
+ #351e23 61%
+ );
+ color:white;
+ font-size:2rem;
+ animation:spin 9s linear infinite;
+ animation-play-state:paused;
+}
+.music.play .disc{
+ animation-play-state:running;
+}
+.music h2{
+ margin-top:8px;
+ color:var(--wine);
+ font-size:clamp(2rem,5vw,3rem);
+}
+.music p{
+ max-width:580px;
+ margin:12px auto 22px;
+ color:var(--muted);
+}
+audio{
+ width:100%;
+ max-width:620px;
+}
+.musicNote{
+ margin-top:12px;
+ color:var(--gold);
+ font:700 .7rem/1.4 Arial,sans-serif;
+ letter-spacing:.08em;
+ text-transform:uppercase;
+}
+.floatMusic{
+ position:fixed;
+ z-index:950;
+ right:20px;
+ bottom:20px;
+ width:54px;
+ height:54px;
+ border:1px solid #7d3d4a22;
  border-radius:50%;
  background:white;
  color:var(--wine);
- font-size:1.4rem;
- cursor:pointer;
- box-shadow:
-   0 8px 25px rgba(0,0,0,.2);
-}
-/* =====================================================
-  ÁUDIO
-===================================================== */
-.audio-memory {
- padding:
-   120px 20px;
- background:
-   linear-gradient(
-     135deg,
-     #292426,
-     #4b3339
-   );
- color:#fff;
- position:relative;
- overflow:hidden;
-}
-.audio-memory::before {
- content:"";
- position:absolute;
- width:600px;
- height:600px;
- border-radius:50%;
- background:
-   radial-gradient(
-     circle,
-     rgba(217,143,156,.23),
-     transparent 68%
-   );
- left:-280px;
- top:-220px;
-}
-.audio-memory::after {
- content:"♫";
- position:absolute;
- right:8%;
- top:12%;
- font-family:Georgia,serif;
- font-size:10rem;
- color:
-   rgba(255,255,255,.025);
-}
-.audio-card {
- width:min(900px,100%);
- margin:auto;
- position:relative;
- z-index:1;
- padding:
-   60px
-   clamp(28px,6vw,75px);
- border:
-   1px solid rgba(255,255,255,.14);
- background:
-   rgba(255,255,255,.065);
- box-shadow:
-   0 25px 70px rgba(0,0,0,.22);
- border-radius:18px;
- text-align:center;
- backdrop-filter:blur(8px);
-}
-.audio-card .eyebrow {
- color:var(--gold-light);
-}
-.audio-card h2 {
- font-family:Georgia,serif;
- font-size:
-   clamp(2.8rem,6vw,4.5rem);
- font-weight:500;
- line-height:1;
- margin:
-   15px 0 20px;
- color:#fff;
-}
-.audio-card p {
- max-width:650px;
- margin:
-   0 auto 28px;
- color:#e9dedf;
- line-height:1.8;
-}
-.audio-player {
- width:min(680px,100%);
- margin:25px auto 0;
- display:block;
- border-radius:30px;
-}
-.audio-note {
- margin-top:18px!important;
- font-size:.78rem;
- color:var(--gold-light)!important;
- letter-spacing:.04em;
-}
-/* BOTÃO DE MÚSICA */
-.music-floating {
- position:fixed;
- right:20px;
- bottom:20px;
- width:52px;
- height:52px;
- border:1px solid rgba(255,255,255,.2);
- border-radius:50%;
- background:
-   rgba(125,61,74,.95);
- color:white;
- z-index:8000;
- display:grid;
- place-items:center;
- cursor:pointer;
- box-shadow:
-   0 12px 35px rgba(70,30,40,.25);
+ box-shadow:var(--soft);
  opacity:0;
- transform:
-   scale(.7);
+ transform:scale(.7);
  pointer-events:none;
- transition:.4s ease;
+ transition:.3s;
 }
-.music-floating.show {
+.floatMusic.show{
  opacity:1;
  transform:scale(1);
  pointer-events:auto;
 }
-.music-floating.playing {
- animation:
-   musicPulse 1.5s infinite;
+/* =========================
+ ARQUIVO CONFIDENCIAL
+========================= */
+.conf{
+ background:
+ linear-gradient(#7d3d4a08,transparent),
+ #fffdfb;
 }
-@keyframes musicPulse {
- 0%,100% {
-   box-shadow:
-     0 12px 35px rgba(70,30,40,.25);
- }
- 50% {
-   box-shadow:
-     0 12px 45px rgba(217,143,156,.55);
- }
+.file{
+ max-width:1000px;
+ margin:auto;
+ padding:35px;
+ border:1px solid #7d3d4a1c;
+ border-radius:28px;
+ background:var(--paper);
+ box-shadow:var(--shadow);
 }
-/* =====================================================
-  HOMENAGEM
-===================================================== */
-.tribute {
- padding:
-   130px 20px;
- background:#2f292b;
- color:#fff;
+.fileTop{
+ display:flex;
+ justify-content:space-between;
+ gap:20px;
+ padding-bottom:22px;
+ border-bottom:1px dashed #7d3d4a44;
+}
+.fileTop h2{
+ margin-top:6px;
+ color:var(--wine);
+ font-size:clamp(1.8rem,4vw,2.8rem);
+}
+.fileTop p{
+ color:var(--muted);
+}
+.stamp{
+ padding:8px 12px;
+ border:2px solid var(--wine);
+ color:var(--wine);
+ font:900 .68rem/1 Arial,sans-serif;
+ letter-spacing:.15em;
+ height:max-content;
+ transform:rotate(-3deg);
+}
+.secretGrid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:18px;
+ margin-top:24px;
+}
+.secret{
  position:relative;
+ min-height:225px;
+ padding:22px;
+ border:1px solid #7d3d4a18;
+ border-radius:18px;
+ background:white;
+ box-shadow:0 8px 25px #4e2a3010;
+ overflow:hidden;
+ transition:.3s;
+}
+.secret:hover{
+ transform:translateY(-5px);
+}
+.secret:after{
+ content:"CONFIDENCIAL";
+ position:absolute;
+ right:-31px;
+ top:16px;
+ padding:5px 35px;
+ background:#7d3d4a10;
+ color:var(--wine);
+ font:900 .55rem/1 Arial,sans-serif;
+ letter-spacing:.15em;
+ transform:rotate(38deg);
+}
+.secretIcon{
+ font-size:2rem;
+}
+.secret h3{
+ margin-top:8px;
+ color:var(--wine);
+}
+.secret p{
+ margin-top:7px;
+ color:var(--muted);
+ font-size:.88rem;
+}
+.revealBtn{
+ width:100%;
+ margin-top:14px;
+ padding:10px;
+ border:1px dashed #7d3d4a55;
+ border-radius:12px;
+ background:#fff7f4;
+ color:var(--wine);
+ font:800 .7rem/1.2 Arial,sans-serif;
+}
+.secretText{
+ display:none;
+ margin-top:12px;
+ padding:12px;
+ border-radius:12px;
+ background:var(--rose2);
+ color:#5f2935;
+ font-size:.88rem;
+ line-height:1.5;
+}
+.secret.open .secretText{
+ display:block;
+ animation:up .35s;
+}
+.fileFoot{
+ margin-top:23px;
+ padding-top:18px;
+ border-top:1px dashed #7d3d4a44;
+ text-align:center;
+ color:var(--muted);
+ font-size:.88rem;
+}
+/* =========================
+ QUIZ
+========================= */
+.quiz{
+ max-width:900px;
+ margin:auto;
+ padding:36px;
+ border:1px solid #7d3d4a18;
+ border-radius:28px;
+ background:var(--paper);
+ box-shadow:var(--shadow);
+}
+.quizStart{
+ text-align:center;
+}
+.quizStart h3{
+ margin-top:7px;
+ color:var(--wine);
+ font-size:2rem;
+}
+.quizStart p{
+ max-width:620px;
+ margin:10px auto 22px;
+ color:var(--muted);
+}
+.qbar{
+ height:8px;
+ border-radius:99px;
+ background:var(--rose2);
  overflow:hidden;
 }
-.tribute::before {
- content:"";
- position:absolute;
- width:500px;
- height:500px;
- border-radius:50%;
- background:
-   radial-gradient(
-     circle,
-     rgba(217,143,156,.12),
-     transparent 70%
-   );
- right:-250px;
- bottom:-250px;
-}
-.tribute-inner {
- width:min(1050px,100%);
- margin:auto;
- display:grid;
- grid-template-columns:
-   minmax(280px,430px) 1fr;
- gap:70px;
- align-items:center;
- position:relative;
- z-index:2;
-}
-.tribute-photo {
- position:relative;
-}
-.tribute-photo img {
- width:100%;
+.qbar span{
  display:block;
- aspect-ratio:4/5;
- object-fit:cover;
- border:
-   12px solid #fff;
- box-shadow:
-   0 25px 60px rgba(0,0,0,.3);
+ height:100%;
+ width:0;
+ background:linear-gradient(90deg,var(--rose),var(--gold));
+ transition:.4s;
 }
-.tribute-photo::after {
- content:"Uma lembrança para sempre";
- position:absolute;
- bottom:-16px;
- right:-22px;
- background:var(--gold);
- color:#fff;
- padding:10px 16px;
- font-size:.68rem;
- letter-spacing:.1em;
+.qmeta{
+ display:flex;
+ justify-content:space-between;
+ margin:14px 0 24px;
+ color:var(--muted);
+ font:800 .68rem/1 Arial,sans-serif;
+ letter-spacing:.08em;
  text-transform:uppercase;
 }
-.tribute-copy .eyebrow {
- color:var(--gold-light);
-}
-.tribute-copy h2 {
- font-family:Georgia,serif;
- font-size:
-   clamp(2.7rem,5vw,4.6rem);
- font-weight:500;
- line-height:1.05;
- margin:
-   15px 0 28px;
- color:#fff;
-}
-.tribute-copy p {
- font-family:Georgia,serif;
- color:#e9dedf;
- line-height:1.95;
- font-size:1.05rem;
-}
-.tribute-sign {
- color:var(--gold-light)!important;
- font-size:1.2rem!important;
- margin-top:32px;
-}
-/* =====================================================
-  CARTA
-===================================================== */
-.letter {
- padding:
-   130px 20px;
- background:
-   linear-gradient(
-     135deg,
-     #fff4f3,
-     #f9e7e8
-   );
-}
-.letter-card {
- max-width:780px;
- margin:auto;
- background:
-   rgba(255,255,255,.86);
- padding:
-   60px
-   clamp(28px,7vw,85px);
- box-shadow:
-   0 30px 90px rgba(100,50,60,.13);
- border:
-   1px solid #f0d8da;
- position:relative;
- border-radius:4px;
-}
-.letter-card::before {
- content:"♡";
- position:absolute;
- right:28px;
- top:20px;
- color:#e3afb7;
- font-size:28px;
-}
-.letter-card::after {
- content:"";
- position:absolute;
- inset:12px;
- border:
-   1px solid rgba(181,138,85,.16);
- pointer-events:none;
-}
-.letter-card p {
- font-family:Georgia,serif;
- font-size:1.12rem;
- line-height:2;
- color:#544548;
-}
-.letter-card .big {
- font-size:
-   clamp(2.1rem,5vw,3.7rem);
- line-height:1.1;
+.question{
+ min-height:90px;
  color:var(--wine);
- margin:
-   20px 0 32px;
+ font-size:clamp(1.5rem,4vw,2.2rem);
+ line-height:1.2;
 }
-/* =====================================================
-  FINAL
-===================================================== */
-.ending {
- min-height:90svh;
+.answers{
+ display:grid;
+ gap:12px;
+ margin-top:24px;
+}
+.answer{
+ padding:16px 18px;
+ border:1px solid #7d3d4a22;
+ border-radius:15px;
+ background:white;
+ color:var(--ink);
+ text-align:left;
+ transition:.2s;
+}
+.answer:hover:not(:disabled){
+ transform:translateX(4px);
+ border-color:var(--rose);
+ background:#fff7f4;
+}
+.answer.correct{
+ background:#eaf6ee;
+ border-color:#5b9a72;
+ color:#275b3b;
+}
+.answer.wrong{
+ background:#fff0f1;
+ border-color:#c66a73;
+ color:#80343c;
+}
+.feedback{
+ min-height:32px;
+ margin-top:15px;
+ color:var(--wine);
+ font-weight:700;
+}
+.next{
+ display:none;
+ margin-top:16px;
+}
+.result{
+ display:none;
+ text-align:center;
+}
+.result.show{
+ display:block;
+ animation:up .5s;
+}
+.circle{
+ width:145px;
+ height:145px;
+ margin:10px auto 22px;
  display:grid;
  place-items:center;
- text-align:center;
- padding:
-   100px 20px;
- position:relative;
- overflow:hidden;
-}
-.ending::before {
- content:"";
- position:absolute;
- width:600px;
- height:600px;
+ border:8px solid var(--rose2);
+ border-top-color:var(--wine);
  border-radius:50%;
- background:
-   radial-gradient(
-     circle,
-     rgba(243,213,217,.7),
-     transparent 70%
-   );
- top:50%;
- left:50%;
- transform:
-   translate(-50%,-50%);
- z-index:0;
-}
-.ending > div {
- position:relative;
- z-index:1;
-}
-.ending h2 {
- font-size:
-   clamp(3.3rem,9vw,7rem);
- margin:12px 0;
- font-family:Georgia,serif;
- font-weight:500;
  color:var(--wine);
+ font-size:2.3rem;
+ font-weight:800;
+}
+.result h3{
+ color:var(--wine);
+ font-size:2.2rem;
+}
+.result p{
+ max-width:600px;
+ margin:12px auto;
+ color:var(--muted);
+}
+/* =========================
+ TRIBUTO
+========================= */
+.tribute{
+ display:grid;
+ grid-template-columns:.85fr 1.15fr;
+ overflow:hidden;
+ border-radius:30px;
+ background:#2f2427;
+ color:white;
+ box-shadow:var(--shadow);
+}
+.tributePhoto{
+ min-height:500px;
+}
+.tributePhoto img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ display:block;
+}
+.tributeCopy{
+ padding:55px;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+}
+.tributeCopy .eyebrow{
+ color:var(--gold2);
+}
+.tributeCopy h2{
+ margin-top:10px;
+ color:white;
+ font-size:clamp(2rem,5vw,3.3rem);
+ line-height:1.05;
+}
+.tributeCopy p{
+ margin-top:18px;
+ color:#ffffffc7;
+}
+.tributeSign{
+ margin-top:25px;
+ color:var(--gold2);
+ font:1.7rem "Brush Script MT",cursive;
+}
+/* =========================
+ CARTA
+========================= */
+.letter{
+ max-width:850px;
+ margin:auto;
+ padding:60px clamp(28px,7vw,80px);
+ border:1px solid #7d3d4a1c;
+ background:
+ repeating-linear-gradient(
+ 0deg,
+ transparent 0,
+ transparent 31px,
+ #7d3d4a0d 32px
+ ),
+ var(--paper);
+ box-shadow:var(--shadow);
+}
+.letter h2{
+ margin-top:10px;
+ color:var(--wine);
+ font-size:clamp(2.2rem,6vw,4rem);
+ line-height:1;
+}
+.letter p{
+ margin-top:20px;
+ color:var(--muted);
+ font-size:1.05rem;
+}
+.letterSign{
+ margin-top:28px;
+ color:var(--wine);
+ font:2rem "Brush Script MT",cursive;
+}
+/* =========================
+ FINAL
+========================= */
+.final{
+ padding:130px 0 75px;
+ text-align:center;
+}
+.final h2{
+ margin-top:10px;
+ color:var(--wine);
+ font-size:clamp(3rem,9vw,7rem);
+ line-height:.9;
  letter-spacing:-.05em;
 }
-.ending p {
- font-size:1.12rem;
+.final p{
+ max-width:650px;
+ margin:24px auto 0;
  color:var(--muted);
- line-height:1.8;
- max-width:620px;
- margin-left:auto;
- margin-right:auto;
+ font-size:1.1rem;
 }
-.final-heart {
- font-size:4rem;
- color:var(--rose);
- animation:
-   pulse 1.8s infinite;
- filter:
-   drop-shadow(
-     0 10px 20px rgba(217,143,156,.25)
-   );
+.love{
+ margin-top:35px;
+ color:var(--wine);
+ font:2.7rem "Brush Script MT",cursive;
 }
-@keyframes pulse {
- 0%,100% {
-   transform:scale(1);
- }
- 50% {
-   transform:scale(1.13);
- }
-}
-/* =====================================================
-  FOOTER
-===================================================== */
-footer {
+footer{
+ padding:0 20px 35px;
+ color:var(--muted);
  text-align:center;
- padding:
-   28px 20px;
- color:#a18c90;
- font-size:.73rem;
- letter-spacing:.08em;
+ font:700 .68rem/1.5 Arial,sans-serif;
 }
-/* =====================================================
-  REVEAL
-===================================================== */
-.reveal {
+/* =========================
+ CORAÇÕES
+========================= */
+.hearts{
+ position:fixed;
+ inset:0;
+ z-index:-1;
+ pointer-events:none;
+ overflow:hidden;
+}
+.heart{
+ position:absolute;
+ bottom:-40px;
+ color:#d98f9c52;
+ animation:floatHeart linear forwards;
+}
+/* =========================
+ REVEAL
+========================= */
+.reveal{
  opacity:0;
- transform:
-   translateY(40px);
- transition:
-   opacity 1s ease,
-   transform 1s cubic-bezier(.2,.7,.2,1);
+ transform:translateY(35px);
+ transition:opacity .75s,transform .75s;
 }
-.reveal.show {
+.reveal.visible{
  opacity:1;
  transform:none;
 }
-.memory:nth-child(even).reveal.show {
- transform:
-   translateY(65px)
-   rotate(-.3deg);
-}
-/* =====================================================
-  MOBILE
-===================================================== */
-@media(max-width:760px) {
- .top-nav {
-   top:auto;
-   bottom:
-     calc(15px + env(safe-area-inset-bottom));
+/* =========================
+ ANIMAÇÕES
+========================= */
+@keyframes up{
+ from{
+ opacity:0;
+ transform:translateY(30px);
  }
- .hero {
-   padding:
-     90px 20px
-     100px;
- }
- .hero-inner {
-   grid-template-columns:1fr;
-   gap:48px;
-   text-align:center;
- }
- h1 {
-   font-size:
-     clamp(3.5rem,18vw,5.8rem);
- }
- .hero h2 {
-   margin-left:auto;
-   margin-right:auto;
-   font-size:1rem;
- }
- .signature {
-   margin-top:22px;
- }
- .hero-photo {
-   width:min(88vw,390px);
- }
- .gallery {
-   grid-template-columns:1fr;
-   gap:48px;
- }
- .memory:nth-child(even),
- .memory:nth-child(even):hover {
-   transform:none;
- }
- .memory:nth-child(even).reveal.show {
-   transform:none;
- }
- .section {
-   padding:
-     90px 18px;
- }
- .section h2 {
-   font-size:2.8rem;
- }
- .lead {
-   font-size:.98rem;
- }
- .audio-memory {
-   padding:
-     90px 18px;
- }
- .audio-card {
-   padding:
-     45px 22px;
- }
- .tribute {
-   padding:
-     95px 18px;
- }
- .tribute-inner {
-   grid-template-columns:1fr;
-   gap:50px;
- }
- .tribute-photo {
-   max-width:420px;
-   margin:auto;
- }
- .tribute-copy h2 {
-   font-size:2.9rem;
- }
- .letter {
-   padding:
-     90px 18px;
- }
- .letter-card {
-   padding:
-     48px 25px;
- }
- .letter-card p {
-   font-size:1.05rem;
- }
- .ending {
-   min-height:80svh;
+ to{
+ opacity:1;
+ transform:none;
  }
 }
-/* =====================================================
-  ACESSIBILIDADE
-===================================================== */
-@media(prefers-reduced-motion:reduce) {
+@keyframes photo{
+ from{
+ opacity:0;
+ transform:translateY(35px) rotate(5deg) scale(.96);
+ }
+ to{
+ opacity:1;
+ transform:none;
+ }
+}
+@keyframes breathe{
+ 0%,100%{
+ opacity:.55;
+ transform:translateY(0);
+ }
+ 50%{
+ opacity:1;
+ transform:translateY(5px);
+ }
+}
+@keyframes spin{
+ to{
+ transform:rotate(360deg);
+ }
+}
+@keyframes floatHeart{
+ 0%{
+ transform:translateY(0) rotate(0);
+ opacity:0;
+ }
+ 15%{
+ opacity:1;
+ }
+ 100%{
+ transform:translateY(-110vh) rotate(35deg);
+ opacity:0;
+ }
+}
+/* =========================
+ RESPONSIVO
+========================= */
+@media(max-width:900px){
+ .heroGrid,
+ .tribute{
+ grid-template-columns:1fr;
+ }
+ .heroCopy{
+ text-align:center;
+ }
+ .heroPhoto{
+ max-width:500px;
+ }
+ .secretGrid{
+ grid-template-columns:1fr 1fr;
+ }
+ .tributePhoto{
+ min-height:360px;
+ }
+}
+@media(max-width:700px){
+ .section{
+ padding:75px 0;
+ }
+ .container{
+ width:min(calc(100% - 24px),var(--max));
+ }
+ .nav{
+ top:10px;
+ }
+ .nav a{
+ padding:8px 9px;
+ font-size:.62rem;
+ }
+ .hero{
+ padding-top:105px;
+ }
+ .heroGrid{
+ gap:50px;
+ }
+ .hero h1{
+ font-size:clamp(3rem,16vw,5rem);
+ }
+ .note{
+ right:4px;
+ bottom:12px;
+ max-width:180px;
+ font-size:.78rem;
+ }
+ .gallery{
+ grid-template-columns:1fr;
+ }
+ .memory:nth-child(even){
+ transform:none;
+ }
+ .memory:nth-child(even):hover{
+ transform:translateY(-8px);
+ }
+ .file,
+ .quiz{
+ padding:22px;
+ }
+ .fileTop{
+ flex-direction:column;
+ }
+ .secretGrid{
+ grid-template-columns:1fr;
+ }
+ .tributeCopy{
+ padding:35px 25px 45px;
+ }
+ .tributePhoto{
+ min-height:300px;
+ }
+ .letter{
+ padding:40px 24px;
+ }
+ .music{
+ padding:32px 20px;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ html{
+ scroll-behavior:auto;
+ }
  *,
  *::before,
- *::after {
-   scroll-behavior:auto!important;
-   animation-duration:.01ms!important;
-   animation-iteration-count:1!important;
-   transition-duration:.01ms!important;
+ *::after{
+ animation-duration:.01ms!important;
+ animation-iteration-count:1!important;
+ transition-duration:.01ms!important;
  }
 }
 </style>
 </head>
-
 <body>
-
-<!-- =====================================================
-    PROGRESSO
-===================================================== -->
-<div
- class="progress-bar"
- id="progressBar"
-></div>
-
-<!-- =====================================================
-    NAVEGAÇÃO
-===================================================== -->
-<nav
- class="top-nav"
- id="topNav"
- aria-label="Navegação"
->
-<a
-   href="#inicio"
-   title="Início"
->
-   ♡
-</a>
-<a
-   href="#historia"
-   title="Nossa história"
->
-   17
-</a>
-<a
-   href="#nossa-musica"
-   title="Nossa música"
->
-   ♫
-</a>
-<a
-   href="#carta"
-   title="Carta"
->
-   ✉
-</a>
-<a
-   href="#final"
-   title="Final"
->
-   ♥
-</a>
+<div class="progress" id="progress"></div>
+<nav class="nav">
+<a href="#inicio">Início</a>
+<a href="#historia">História</a>
+<a href="#nossa-musica">Música</a>
+<a href="#confidencial">Confidencial</a>
+<a href="#quiz">Quiz</a>
+<a href="#carta">Carta</a>
 </nav>
-
-<!-- =====================================================
-    HERO
-===================================================== -->
-<section
- class="hero"
- id="inicio"
->
-<div class="hero-inner">
-
-<div class="hero-copy">
-<div class="kicker">
-       Uma pequena declaração para você
+<div class="hearts" id="hearts"></div>
+<!-- =========================
+ HERO
+========================= -->
+<header class="hero" id="inicio">
+<div class="container">
+<div class="heroGrid">
+<div class="heroCopy">
+<div class="eyebrow">
+Uma pequena declaração para você
 </div>
 <h1>
-       Paula Massetti
-<br>
-<span style="font-size:.72em">
-&amp;
-</span>
-       Mayron Cutrim
+Paula<br>
+&amp; Mayron
 </h1>
-<h2>
-       Entre tantos caminhos, encontros e momentos,
-       a melhor parte da minha história é poder viver
-       tudo isso ao seu lado.
-</h2>
-<div class="signature">
-       Com amor, Mayron ♡
+<p class="lead">
+Entre tantos caminhos, encontros e momentos,
+a melhor parte da minha história é poder viver
+tudo isso ao seu lado.
+</p>
+<div class="sign">
+Com amor, Mayron ♡
 </div>
-<a
-       class="audio-nav"
-       href="#nossa-musica"
->
-       Ouvir nossa música ↓
+<div class="actions">
+<a class="btn primary" href="#nossa-musica">
+ Ouvir nossa música
+</a>
+<a class="btn" href="#historia">
+ Ver nossa história
 </a>
 </div>
-
-<div class="hero-photo">
+</div>
+<div class="heroPhoto">
 <img
-       src="imagens/recordacao-01.jpg"
-       alt="Paula e Mayron juntos"
+src="imagens/recordacao-01.jpg"
+alt="Paula e Mayron"
 >
+<div class="note">
+Spoiler: ainda tem muita história pela frente. 
 </div>
 </div>
-
+</div>
 <div class="scroll">
-   role para lembrar da gente ↓
+Role para lembrar da gente ↓
 </div>
-</section>
-
-<!-- =====================================================
-    HISTÓRIA
-===================================================== -->
-<section
- class="section"
- id="historia"
->
-<div class="container center">
+</div>
+</header>
+<!-- =========================
+ HISTÓRIA
+========================= -->
+<section class="section" id="historia">
+<div class="container">
+<div class="heading reveal">
 <div class="eyebrow">
-     Nossa história em fotografias
+17 momentos
 </div>
 <h2>
-     Momentos que eu guardaria para sempre.
-</h2>
-<div class="heart-line">
-     ♥
-</div>
-<p class="lead">
-     Cada foto aqui é só um pedacinho daquilo que sinto.
-     Porque o que eu mais gosto não é apenas lembrar do
-     que vivemos, é pensar em tudo que ainda vamos viver.
-</p>
-</div>
-
-<div class="container gallery">
-
-<!-- 01 -->
-<article class="memory reveal">
-<div class="photo-wrap">
-<img
-         src="imagens/recordacao-02.jpg"
-         alt="Primeiro evento juntos"
-         loading="lazy"
->
-</div>
-<div class="memory-copy">
-<span class="number">
-         01
-</span>
-<h3>
-         Primeiro evento juntos
-</h3>
-<p>
-         Alguns momentos parecem simples na hora em que
-         acontecem. Depois, viram parte da nossa história
-         para sempre. Eu chegando "atrasado" e tu brigando
-         comigo porque não levei um blaze kkkkk.
-</p>
-</div>
-</article>
-
-<!-- 02 -->
-<article class="memory reveal">
-<div class="photo-wrap">
-<img
-         src="imagens/recordacao-03.jpg"
-         alt="Dia de gargalhadas"
-         loading="lazy"
->
-</div>
-<div class="memory-copy">
-<span class="number">
-         02
-</span>
-<h3>
-         Dia de gargalhadas
-</h3>
-<p>
-         Eu gosto de você nas grandes aventuras e também
-         nos pequenos detalhes que só quem ama de verdade
-         aprende a perceber. A gente gastando quase
-         R$ 300,00 para ir ver um evento no circo...
-         mas valeu MUITOOO a pena só de ver cada sorriso seu.
-</p>
-</div>
-</article>
-
-<!-- 03 -->
-<article class="memory reveal">
-<div class="photo-wrap">
-<img
-         src="imagens/recordacao-04.jpg"
-         alt="Primeira corrida oficial juntos"
-         loading="lazy"
->
-</div>
-<div class="memory-copy">
-<span class="number">
-         03
-</span>
-<h3>
-         Primeira corrida oficial juntos
-</h3>
-<p>
-         Entre sorrisos, viagens, abraços e aquele nosso
-         jeito de aproveitar a vida, fomos construindo
-         uma história só nossa. Nossa primeira corrida
-         oficial juntos, com um pace de tartaruga kkkkk.
-</p>
-</div>
-</article>
-
-<!-- 04 -->
-<article class="memory reveal">
-<div class="photo-wrap">
-<img
-         src="imagens/recordacao-05.jpg"
-         alt="Todos a bordo"
-         loading="lazy"
->
-</div>
-<div class="memory-copy">
-<span class="number">
-         04
-</span>
-<h3>
-         Todos a booordooo!!
-</h3>
-<p>
-         Não importa muito o lugar. Se você está comigo,
-         qualquer cenário ganha um significado diferente.
-         Vamos navegando juntos nesse oceano que é a vida.
-</p>
-</div>
-</article>
-
-<!-- 05 -->
-<article class="memory reveal">
-<div class="photo-wrap">
-<img
-         src="imagens/recordacao-06.jpg"
-         alt="Nós dois"
-         loading="lazy"
->
-</div>
-<div class="memory-copy">
-<span class="number">
-         05
-</span>
-<h3>
-         Nós dois
-</h3>
-<p>
-         Tem coisa que fotografia nenhuma consegue explicar.
-         O olhar, a cumplicidade e a sensação de estar
-         exatamente onde eu queria estar.
-</p>
-</div>
-</article>
-
-<!-- 06 -->
-<article class="memory reveal">
-<div class="photo-wrap">
-<img
-         src="imagens/recordacao-07.jpg"
-         alt="Estar com você é revigorante"
-         loading="lazy"
->
-</div>
-<div class="memory-copy">
-<span class="number">
-         06
-</span>
-<h3>
-         Estar com você é revigorante
-</h3>
-<p>
-         Nossas aventuras e momentos juntos me renovam sempre.
-</p>
-</div>
-</article>
-
-<!-- 07 -->
-<article class="memory reveal">
-<div class="photo-wrap">
-<img
-         src="imagens/recordacao-08.jpg"
-         alt="Ainda temos tanto para viver"
-         loading="lazy"
->
-</div>
-<div class="memory-copy">
-<span class="number">
-         07
-</span>
-<h3>
-         Ainda temos tanto para viver
-</h3>
-<p>
-         Quero continuar colecionando viagens, comidas,
-         risadas, planos, fotos ruins, fotos lindas e
-         momentos que só nós dois vamos entender.
-</p>
-</div>
-</article>
-
-<!-- 08 -->
-<article class="memory reveal">
-<div class="photo-wrap">
-<img
-         src="imagens/recordacao-09.jpg"
-         alt="Meu lugar favorito"
-         loading="lazy"
->
-</div>
-<div class="memory-copy">
-<span class="number">
-         08
-</span>
-<h3>
-         Meu lugar favorito
-</h3>
-<p>
-         No fim das contas, meu lugar favorito não é uma
-         cidade, uma praia ou um restaurante. É perto de você.
-</p>
-</div>
-</article>
-
-<!-- 09 -->
-<article class="memory reveal">
-<div class="photo-wrap">
-<img
-         src="imagens/recordacao-10.jpg"
-         alt="A gente, sem roteiro"
-         loading="lazy"
->
-</div>
-<div class="memory-copy">
-<span class="number">
-         09
-</span>
-<h3>
-         A gente, sem roteiro
-</h3>
-<p>
-         Algumas das melhores lembranças são justamente
-         aquelas sem planejamento: um sofá, uma risada,
-         um abraço e a certeza de que eu estava feliz
-         por estar com você.
-</p>
-</div>
-</article>
-
-<!-- 10 -->
-<article class="memory reveal">
-<div class="photo-wrap">
-<img
-         src="imagens/recordacao-11.jpg"
-         alt="Nosso jeito"
-         loading="lazy"
->
-</div>
-<div class="memory-copy">
-<span class="number">
-         10
-</span>
-<h3>
-         Nosso jeito
-</h3>
-<p>
-         Temos nosso próprio jeito de demonstrar carinho.
-         Às vezes é um olhar, às vezes uma brincadeira,
-         às vezes simplesmente ficar juntinhos.
-</p>
-</div>
-</article>
-
-<!-- 11 -->
-<article class="memory reveal">
-<div class="photo-wrap">
-<img
-         src="imagens/recordacao-12.jpg"
-         alt="Focados juntos, vamos construindo nossa vida"
-         loading="lazy"
->
-</div>
-<div class="memory-copy">
-<span class="number">
-         11
-</span>
-<h3>
-         Focados juntos, vamos construindo nossa vida
-</h3>
-<p>
-         Eu amo perceber que juntos estamos compartilhando
-         rotina, aprendendo e crescendo um com o outro.
-</p>
-</div>
-</article>
-
-<!-- 12 -->
-<article class="memory reveal">
-<div class="photo-wrap">
-<img
-         src="imagens/recordacao-13.jpg"
-         alt="Risadas boas"
-         loading="lazy"
->
-</div>
-<div class="memory-copy">
-<span class="number">
-         12
-</span>
-<h3>
-         Risadas boas
-</h3>
-<p>
-         Entre uma risada e outra, mais uma lembrança
-         simples que ganhou um lugar especial na nossa história.
-</p>
-</div>
-</article>
-
-<!-- 13 -->
-<article class="memory reveal">
-<div class="photo-wrap">
-<img
-         src="imagens/recordacao-14.jpg"
-         alt="Um dia de conquista"
-         loading="lazy"
->
-</div>
-<div class="memory-copy">
-<span class="number">
-         13
-</span>
-<h3>
-         Um dia de conquista
-</h3>
-<p>
-         Um daqueles dias que representam uma etapa
-         importante e ficam ainda mais especiais quando
-         temos alguém querido ao nosso lado.
-</p>
-</div>
-</article>
-
-<!-- 14 -->
-<article class="memory reveal">
-<div class="photo-wrap">
-<img
-         src="imagens/recordacao-15.jpg"
-         alt="Nós dois, do nosso jeito"
-         loading="lazy"
->
-</div>
-<div class="memory-copy">
-<span class="number">
-         14
-</span>
-<h3>
-         Nós dois, do nosso jeito
-</h3>
-<p>
-         Mais um daqueles momentos que eu escolheria
-         guardar para sempre: nós dois, juntos,
-         aproveitando a vida.
-</p>
-</div>
-</article>
-
-<!-- 15 -->
-<article class="memory reveal">
-<div class="photo-wrap">
-<img
-         src="imagens/recordacao-16.jpg"
-         alt="Nosso primeiro Ano novo"
-         loading="lazy"
->
-</div>
-<div class="memory-copy">
-<span class="number">
-         15
-</span>
-<h3>
-         Nosso primeiro Ano novo
-</h3>
-<p>
-         2025. Nosso primeiro Réveillon, o primeiro de muitos
-         que pretendo viver com você.
-</p>
-</div>
-</article>
-
-<!-- 16 -->
-<article class="memory reveal">
-<div class="photo-wrap">
-<img
-         src="imagens/recordacao-17.jpg"
-         alt="Primeira estrada juntos"
-         loading="lazy"
->
-</div>
-<div class="memory-copy">
-<span class="number">
-         16
-</span>
-<h3>
-         Primeira estrada juntos
-</h3>
-<p>
-         Nossa primeira viagem juntos. Furamos o pneu,
-         tu quase deu PT e quase fomos virados para o
-         trabalho, mas deu tudo certo e conseguimos ir
-         e voltar em segurança kkkkk.
-</p>
-</div>
-</article>
-
-<!-- 17 -->
-<article class="memory reveal">
-<div class="photo-wrap">
-<img
-         src="imagens/recordacao-19.jpg"
-         alt="Um carinho"
-         loading="lazy"
->
-</div>
-<div class="memory-copy">
-<span class="number">
-         17
-</span>
-<h3>
-         Um carinho
-</h3>
-<p>
-         Uma foto que acho muito especial e de um momento
-         mais especial ainda. Candy te pedindo comida kkkk.
-</p>
-</div>
-</article>
-
-</div>
-</section>
-
-<!-- =====================================================
-    MÚSICA
-===================================================== -->
-<section
- class="audio-memory"
- id="nossa-musica"
->
-<div class="audio-card reveal">
-<div class="eyebrow">
-     Uma aba especial só nossa
-</div>
-<h2>
-     Paula Massetti
+Nossa história em fotografias
 </h2>
 <p>
-     Uma música para acompanhar essas lembranças
-     e deixar este cantinho ainda mais nosso.
-</p>
-<audio
-     class="audio-player"
-     id="mainAudio"
-     controls
-     preload="metadata"
->
-<source
-       src="audio/Paula Massetti ❤️.mp3.mpeg"
-       type="audio/mpeg"
->
-     Seu navegador não suporta reprodução de áudio.
-</audio>
-<p class="audio-note">
-     Dê o play e continue a recordação.
+Momentos que eu guardaria para sempre.
+Cada foto é só um pedacinho daquilo que sinto.
 </p>
 </div>
-</section>
-
-<!-- =====================================================
-    HOMENAGEM
-===================================================== -->
-<section class="tribute">
-<div class="tribute-inner">
-
-<div class="tribute-photo reveal">
-<img
-       src="imagens/recordacao-18.jpg"
-       alt="Foto de Mayron com Paula e a mãe dela"
-       loading="lazy"
->
-</div>
-
-<div class="tribute-copy reveal">
-<div class="eyebrow">
-       Uma lembrança que merece um lugar especial
-</div>
-<h2>
-       Para você e para ela.
-</h2>
-<p>
-       Paula, entre todas as lembranças que guardamos,
-       existe uma que tem um significado diferente.
-       Essa foi a única foto que consegui tirar com
-       a sua mãe em vida.
-</p>
-<p>
-       Eu sei que nenhuma fotografia é capaz de substituir
-       a presença de alguém tão importante. Mas, de alguma
-       forma, gosto de pensar que essa imagem guarda um
-       pedacinho daquele momento, da família reunida e de
-       uma pessoa que fez e faz parte da sua história e,
-       por isso, também passou a fazer parte da minha.
-</p>
-<p>
-       Tenho carinho e respeito por essa lembrança.
-       E quero que você saiba que, sempre que eu olhar
-       para essa foto, vou lembrar não apenas da saudade,
-       mas também da importância que ela teve e sempre
-       terá nas nossas vidas.
-</p>
-<p class="tribute-sign">
-       Que essa lembrança permaneça para sempre.
-       Wane Massetti ❤️
-</p>
-</div>
-</div>
-</section>
-
-<!-- =====================================================
-    CARTA
-===================================================== -->
-<section
- class="letter"
- id="carta"
->
-<div class="letter-card reveal">
-<div class="eyebrow">
-     Coloquei somente 17 fotos, pois acho que esse é um
-     número que de alguma forma está presente bastante
-     em nossas vidas, mas depois de tudo isso, ainda tenho
-     uma coisa para te dizer
-</div>
-<h2 class="big">
-     Paula, eu escolheria você de novo.
-</h2>
-<p>
-     Eu poderia tentar escrever um texto perfeito,
-     mas talvez o mais bonito seja simplesmente
-     dizer a verdade.
-</p>
-<p>
-     Eu amo o jeito como você faz os dias comuns
-     parecerem especiais. Amo nossas risadas,
-     nossos passeios, nossas viagens, nossas conversas
-     e até aquelas pequenas coisas que provavelmente
-     ninguém mais entenderia.
-</p>
-<p>
-     Gosto de olhar para trás e perceber quantas
-     lembranças já construímos juntos. E gosto ainda
-     mais de olhar para frente e imaginar todas as
-     outras que ainda estão esperando por nós.
-</p>
-<p>
-     Obrigado por ser você. Por dividir sua vida comigo,
-     por me permitir conhecer seus sonhos, suas manias,
-     seus sorrisos e cada uma das suas versões.
-</p>
-<p>
-     Se algum dia eu esquecer de dizer, espero que
-     essas fotos lembrem por mim:
-<strong>
-       você é muito especial para mim.
-</strong>
-</p>
-<p
-     style="
-       text-align:right;
-       margin-top:35px;
-     "
->
-     Com todo meu amor,
-<br>
-<strong>
-       Mayron
-</strong>
-     ❤️
-</p>
-</div>
-</section>
-
-<!-- =====================================================
-    FINAL
-===================================================== -->
-<section
- class="ending"
- id="final"
->
-<div>
-<div class="final-heart">
-     ♥
-</div>
-<div class="eyebrow">
-     E essa história continua...
-</div>
-<h2>
-     Eu &amp; você.
-</h2>
-<p>
-     Que a gente continue colecionando lugares,
-     viagens, abraços, fotos e motivos para
-     sorrir juntos.
-</p>
-<p
-     style="
-       margin-top:38px;
-       color:var(--wine);
-       font-family:Georgia,serif;
-       font-size:1.3rem;
-     "
->
-     Paula, eu te amo.
-</p>
-</div>
-</section>
-
-<footer>
- Feito por Mayron, para Paula — com amor e muitas lembranças.
-</footer>
-
-<!-- =====================================================
-    LIGHTBOX
-===================================================== -->
+<div class="gallery">
+<article class="memory reveal">
 <div
- class="lightbox"
- id="lightbox"
- role="dialog"
- aria-modal="true"
- aria-label="Visualização da fotografia"
+class="photo"
+data-img="imagens/recordacao-02.jpg"
 >
-<div class="lightbox-content">
-<button
-     class="lightbox-close"
-     id="lightboxClose"
-     aria-label="Fechar"
->
-     ×
-</button>
 <img
-     id="lightboxImage"
-     src=""
-     alt=""
+src="imagens/recordacao-02.jpg"
+alt="Primeiro evento juntos"
+loading="lazy"
 >
 </div>
+<div class="copy">
+<div class="num">01 / 17</div>
+<h3>
+Primeiro evento juntos
+</h3>
+<p>
+Alguns momentos parecem simples...
+Eu chegando "atrasado" e tu brigando comigo
+porque não levei um blaze kkkkk.
+</p>
 </div>
-
-<!-- =====================================================
-    BOTÃO DE MÚSICA
-===================================================== -->
-<button
- class="music-floating"
- id="musicFloating"
- aria-label="Reproduzir ou pausar música"
+</article>
+<article class="memory reveal">
+<div
+class="photo"
+data-img="imagens/recordacao-03.jpg"
 >
- ♫
+<img
+src="imagens/recordacao-03.jpg"
+alt="Dia de gargalhadas"
+loading="lazy"
+>
+</div>
+<div class="copy">
+<div class="num">02 / 17</div>
+<h3>
+Dia de gargalhadas
+</h3>
+<p>
+A gente gastando quase R$ 300,00 para ir ver
+um evento no circo... mas valeu MUITOOO a pena
+só de ver cada sorriso seu.
+</p>
+</div>
+</article>
+<article class="memory reveal">
+<div
+class="photo"
+data-img="imagens/recordacao-04.jpg"
+>
+<img
+src="imagens/recordacao-04.jpg"
+alt="Primeira corrida oficial juntos"
+loading="lazy"
+>
+</div>
+<div class="copy">
+<div class="num">03 / 17</div>
+<h3>
+Primeira corrida oficial juntos
+</h3>
+<p>
+Nossa primeira corrida oficial juntos,
+com um pace de tartaruga kkkkk.
+</p>
+</div>
+</article>
+<article class="memory reveal">
+<div
+class="photo"
+data-img="imagens/recordacao-05.jpg"
+>
+<img
+src="imagens/recordacao-05.jpg"
+alt="Todos a bordo"
+loading="lazy"
+>
+</div>
+<div class="copy">
+<div class="num">04 / 17</div>
+<h3>
+Todos a booordooo!!
+</h3>
+<p>
+Vamos navegando juntos nesse oceano que é a vida.
+</p>
+</div>
+</article>
+<article class="memory reveal">
+<div
+class="photo"
+data-img="imagens/recordacao-06.jpg"
+>
+<img
+src="imagens/recordacao-06.jpg"
+alt="Nós dois"
+loading="lazy"
+>
+</div>
+<div class="copy">
+<div class="num">05 / 17</div>
+<h3>
+Nós dois
+</h3>
+<p>
+Não importa muito onde.
+Se for com você, já virou um lugar especial.
+</p>
+</div>
+</article>
+<article class="memory reveal">
+<div
+class="photo"
+data-img="imagens/recordacao-07.jpg"
+>
+<img
+src="imagens/recordacao-07.jpg"
+alt="Estar com você é revigorante"
+loading="lazy"
+>
+</div>
+<div class="copy">
+<div class="num">06 / 17</div>
+<h3>
+Estar com você é revigorante
+</h3>
+<p>
+Tem dias em que tudo que eu preciso é estar perto
+de você e esquecer o resto do mundo por algumas horas.
+</p>
+</div>
+</article>
+<article class="memory reveal">
+<div
+class="photo"
+data-img="imagens/recordacao-08.jpg"
+>
+<img
+src="imagens/recordacao-08.jpg"
+alt="Ainda temos tanto para viver"
+loading="lazy"
+>
+</div>
+<div class="copy">
+<div class="num">07 / 17</div>
+<h3>
+Ainda temos tanto para viver
+</h3>
+<p>
+Se tudo isso já aconteceu até aqui,
+imagina tudo que ainda podemos viver juntos.
+</p>
+</div>
+</article>
+<article class="memory reveal">
+<div
+class="photo"
+data-img="imagens/recordacao-09.jpg"
+>
+<img
+src="imagens/recordacao-09.jpg"
+alt="Meu lugar favorito"
+loading="lazy"
+>
+</div>
+<div class="copy">
+<div class="num">08 / 17</div>
+<h3>
+Meu lugar favorito
+</h3>
+<p>
+Meu lugar favorito nem sempre é um lugar.
+Às vezes é simplesmente estar ao seu lado.
+</p>
+</div>
+</article>
+<article class="memory reveal">
+<div
+class="photo"
+data-img="imagens/recordacao-10.jpg"
+>
+<img
+src="imagens/recordacao-10.jpg"
+alt="A gente sem roteiro"
+loading="lazy"
+>
+</div>
+<div class="copy">
+<div class="num">09 / 17</div>
+<h3>
+A gente, sem roteiro
+</h3>
+<p>
+Porque algumas das melhores histórias são justamente
+aquelas que a gente não planeja.
+</p>
+</div>
+</article>
+<article class="memory reveal">
+<div
+class="photo"
+data-img="imagens/recordacao-11.jpg"
+>
+<img
+src="imagens/recordacao-11.jpg"
+alt="Nosso jeito"
+loading="lazy"
+>
+</div>
+<div class="copy">
+<div class="num">10 / 17</div>
+<h3>
+Nosso jeito
+</h3>
+<p>
+Do nosso jeito, com nossas piadas,
+nossas manias e aquela bagunça que só nós entendemos.
+</p>
+</div>
+</article>
+<article class="memory reveal">
+<div
+class="photo"
+data-img="imagens/recordacao-12.jpg"
+>
+<img
+src="imagens/recordacao-12.jpg"
+alt="Construindo nossa vida"
+loading="lazy"
+>
+</div>
+<div class="copy">
+<div class="num">11 / 17</div>
+<h3>
+Focados juntos, vamos construindo nossa vida
+</h3>
+<p>
+Um passo de cada vez, sonhando, trabalhando
+e construindo aquilo que queremos viver.
+</p>
+</div>
+</article>
+<article class="memory reveal">
+<div
+class="photo"
+data-img="imagens/recordacao-13.jpg"
+>
+<img
+src="imagens/recordacao-13.jpg"
+alt="Risadas boas"
+loading="lazy"
+>
+</div>
+<div class="copy">
+<div class="num">12 / 17</div>
+<h3>
+Risadas boas
+</h3>
+<p>
+Algumas risadas ficam na memória.
+Principalmente aquelas que começam por uma besteira.
+</p>
+</div>
+</article>
+<article class="memory reveal">
+<div
+class="photo"
+data-img="imagens/recordacao-14.jpg"
+>
+<img
+src="imagens/recordacao-14.jpg"
+alt="Um dia de conquista"
+loading="lazy"
+>
+</div>
+<div class="copy">
+<div class="num">13 / 17</div>
+<h3>
+Um dia de conquista
+</h3>
+<p>
+Porque comemorar suas conquistas também virou
+uma das minhas coisas favoritas.
+</p>
+</div>
+</article>
+<article class="memory reveal">
+<div
+class="photo"
+data-img="imagens/recordacao-15.jpg"
+>
+<img
+src="imagens/recordacao-15.jpg"
+alt="Nós dois do nosso jeito"
+loading="lazy"
+>
+</div>
+<div class="copy">
+<div class="num">14 / 17</div>
+<h3>
+Nós dois, do nosso jeito
+</h3>
+<p>
+Sem precisar parecer com ninguém.
+Só sendo nós.
+</p>
+</div>
+</article>
+<article class="memory reveal">
+<div
+class="photo"
+data-img="imagens/recordacao-16.jpg"
+>
+<img
+src="imagens/recordacao-16.jpg"
+alt="Nosso primeiro Ano Novo"
+loading="lazy"
+>
+</div>
+<div class="copy">
+<div class="num">15 / 17</div>
+<h3>
+Nosso primeiro Ano Novo
+</h3>
+<p>
+2025. Nosso primeiro Réveillon,
+o primeiro de muitos que pretendo viver com você.
+</p>
+</div>
+</article>
+<article class="memory reveal">
+<div
+class="photo"
+data-img="imagens/recordacao-17.jpg"
+>
+<img
+src="imagens/recordacao-17.jpg"
+alt="Primeira estrada juntos"
+loading="lazy"
+>
+</div>
+<div class="copy">
+<div class="num">16 / 17</div>
+<h3>
+Primeira estrada juntos
+</h3>
+<p>
+Nossa primeira viagem juntos.
+Furamos o pneu, tu quase deu PT e quase fomos
+virados para o trabalho, mas deu tudo certo e
+conseguimos ir e voltar em segurança kkkkk.
+</p>
+</div>
+</article>
+<article class="memory reveal">
+<div
+class="photo"
+data-img="imagens/recordacao-19.jpg"
+>
+<img
+src="imagens/recordacao-19.jpg"
+alt="Um carinho"
+loading="lazy"
+>
+</div>
+<div class="copy">
+<div class="num">17 / 17</div>
+<h3>
+Um carinho
+</h3>
+<p>
+Uma foto que acho muito especial e de um momento
+mais especial ainda. Candy te pedindo comida kkkk.
+</p>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- =========================
+ MÚSICA
+========================= -->
+<section class="section" id="nossa-musica">
+<div class="container">
+<div class="music reveal" id="music">
+<div class="disc">
+♫
+</div>
+<div class="eyebrow">
+Nossa música
+</div>
+<h2>
+Paula Massetti
+</h2>
+<p>
+Uma música para acompanhar essas lembranças
+e deixar este cantinho ainda mais nosso.
+</p>
+<audio id="audio" controls preload="metadata">
+<source
+src="audio/Paula Massetti .mp3.mpeg"
+type="audio/mpeg"
+>
+Seu navegador não consegue reproduzir este áudio.
+</audio>
+<div class="musicNote">
+Dê o play e continue a recordação. 
+</div>
+</div>
+</div>
+</section>
+<!-- =========================
+ ARQUIVO CONFIDENCIAL
+========================= -->
+<section class="section conf" id="confidencial">
+<div class="container">
+<div class="heading reveal">
+<div class="eyebrow">
+Acesso restrito
+</div>
+<h2>
+Arquivo Confidencial
+</h2>
+<p>
+Informações que não poderiam ficar registradas
+em nenhum outro lugar. Clique nos arquivos para revelar.
+</p>
+</div>
+<div class="file reveal">
+<div class="fileTop">
+<div>
+<div class="eyebrow">
+Dossiê P&amp;M — 17
+</div>
+<h2>
+Operação: Nós Dois
+</h2>
+<p>
+Documento classificado.
+Acesso autorizado somente para Paula. 
+</p>
+</div>
+<div class="stamp">
+CONFIDENCIAL
+</div>
+</div>
+<div class="secretGrid">
+<div class="secret">
+<div class="secretIcon">
+ 
+</div>
+<h3>
+Arquivo 001
+</h3>
+<p>
+Uma descoberta importante sobre esta relação.
+</p>
+<button class="revealBtn">
+ Revelar informação
 </button>
-
-<!-- =====================================================
-    JAVASCRIPT
-===================================================== -->
+<div class="secretText">
+Mayron descobriu que qualquer programa fica melhor
+quando Paula está junto — até aqueles que começam
+com "vamos só dar uma voltinha".
+</div>
+</div>
+<div class="secret">
+<div class="secretIcon">
+ 
+</div>
+<h3>
+Arquivo 002
+</h3>
+<p>
+Registro de acontecimentos suspeitos.
+</p>
+<button class="revealBtn">
+ Revelar informação
+</button>
+<div class="secretText">
+Existem evidências suficientes de que pelo menos 80%
+das nossas melhores histórias envolvem alguma coisa
+dando errado e nós dois rindo depois.
+</div>
+</div>
+<div class="secret">
+<div class="secretIcon">
+ 
+</div>
+<h3>
+Arquivo 003
+</h3>
+<p>
+Informação altamente sigilosa.
+</p>
+<button class="revealBtn">
+ Revelar informação
+</button>
+<div class="secretText">
+Sushi, passeios, viagens e comida são considerados
+elementos estratégicos para manutenção da felicidade
+do casal.
+</div>
+</div>
+<div class="secret">
+<div class="secretIcon">
+ 
+</div>
+<h3>
+Arquivo 004
+</h3>
+<p>
+Relatório esportivo.
+</p>
+<button class="revealBtn">
+ Revelar informação
+</button>
+<div class="secretText">
+O pace de tartaruga registrado na primeira corrida
+continua oficialmente considerado
+"ritmo de alto desempenho emocional". 
+</div>
+</div>
+<div class="secret">
+<div class="secretIcon">
+ 
+</div>
+<h3>
+Arquivo 005
+</h3>
+<p>
+Relatório da primeira viagem.
+</p>
+<button class="revealBtn">
+ Revelar informação
+</button>
+<div class="secretText">
+Pneu furado + quase PT + quase voltar para o trabalho =
+primeira aventura oficial do casal.
+Missão concluída com sucesso. kkkkk
+</div>
+</div>
+<div class="secret">
+<div class="secretIcon">
+ 
+</div>
+<h3>
+Arquivo 006
+</h3>
+<p>
+Documento final. Nível máximo de sigilo.
+</p>
+<button class="revealBtn">
+ Revelar informação
+</button>
+<div class="secretText">
+A principal evidência encontrada neste dossiê é simples:
+Mayron escolheria Paula novamente.
+E novamente. E novamente.
+</div>
+</div>
+</div>
+<div class="fileFoot">
+Documento encerrado.
+Nenhuma informação adicional será divulgada sem
+autorização da pessoa mais importante deste arquivo. 
+</div>
+</div>
+</div>
+</section>
+<!-- =========================
+ QUIZ
+========================= -->
+<section class="section" id="quiz">
+<div class="container">
+<div class="heading reveal">
+<div class="eyebrow">
+Teste de conhecimento
+</div>
+<h2>
+Quiz: Você conhece a nossa história?
+</h2>
+<p>
+Agora vamos descobrir se a pessoa que vive essa história
+também lembra dos detalhes. 
+</p>
+</div>
+<div class="quiz reveal">
+<div class="quizStart" id="quizStart">
+<div class="eyebrow">
+Desafio P&amp;M
+</div>
+<h3>
+Preparada, Paula?
+</h3>
+<p>
+São 8 perguntas. Cada acerto vale 1 ponto.
+No final, você recebe seu nível oficial de conhecimento
+sobre nós dois.
+</p>
+<button class="btn primary" id="start">
+ Começar o quiz
+</button>
+</div>
+<div id="game" style="display:none">
+<div class="qbar">
+<span id="qbar"></span>
+</div>
+<div class="qmeta">
+<span id="qnum">
+Pergunta 1 de 8
+</span>
+<span id="score">
+Pontos: 0
+</span>
+</div>
+<h3 class="question" id="question"></h3>
+<div class="answers" id="answers"></div>
+<div class="feedback" id="feedback"></div>
+<button class="btn primary next" id="next">
+Próxima pergunta →
+</button>
+</div>
+<div class="result" id="result">
+<div class="circle">
+<span id="final">
+0/8
+</span>
+</div>
+<div class="eyebrow">
+Resultado oficial
+</div>
+<h3 id="resultTitle"></h3>
+<p id="resultMsg"></p>
+<button class="btn primary" id="restart">
+ Fazer novamente
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================
+ TRIBUTO
+========================= -->
+<section class="section">
+<div class="container">
+<div class="tribute reveal">
+<div class="tributePhoto">
+<img
+src="imagens/recordacao-18.jpg"
+alt="Foto de Mayron com Paula e a mãe dela"
+loading="lazy"
+>
+</div>
+<div class="tributeCopy">
+<div class="eyebrow">
+Uma lembrança que merece um lugar especial
+</div>
+<h2>
+Para você e para ela.
+</h2>
+<p>
+Essa é uma lembrança que eu quis colocar aqui
+com todo carinho. Foi a única foto que consegui
+tirar com sua mãe enquanto ela estava aqui.
+</p>
+<p>
+Tenho muito respeito e carinho por essa memória.
+Ela faz parte da sua história e, por consequência,
+também passou a fazer parte da minha.
+</p>
+<div class="tributeSign">
+Que essa lembrança permaneça para sempre.
+<br>
+Wane Massetti 
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================
+ CARTA
+========================= -->
+<section class="section" id="carta">
+<div class="container">
+<div class="letter reveal">
+<div class="eyebrow">
+Coloquei somente 17 fotos, pois acho que esse é
+um número que de alguma forma está presente bastante
+em nossas vidas, mas depois de tudo isso, ainda tenho
+uma coisa para te dizer
+</div>
+<h2>
+Paula, eu escolheria você de novo.
+</h2>
+<p>
+Eu poderia tentar escrever um texto perfeito,
+mas talvez o mais bonito seja simplesmente dizer
+a verdade.
+</p>
+<p>
+Eu amo o jeito como você faz os dias comuns parecerem
+especiais. Amo nossas risadas, nossos passeios,
+nossas viagens, nossas conversas e até aquelas
+pequenas coisas que provavelmente ninguém mais entenderia.
+</p>
+<p>
+Gosto de olhar para trás e perceber quantas lembranças
+já construímos juntos. E gosto ainda mais de olhar
+para frente e imaginar todas as outras que ainda estão
+esperando por nós.
+</p>
+<p>
+Obrigado por ser você. Por dividir sua vida comigo,
+por me permitir conhecer seus sonhos, suas manias,
+seus sorrisos e cada uma das suas versões.
+</p>
+<p>
+Se algum dia eu esquecer de dizer, espero que essas
+fotos lembrem por mim: você é muito especial para mim.
+</p>
+<div class="letterSign">
+Com todo meu amor,
+<br>
+Mayron 
+</div>
+</div>
+</div>
+</section>
+<!-- =========================
+ FINAL
+========================= -->
+<section class="final" id="final">
+<div class="container reveal">
+<div class="eyebrow">
+E essa história continua...
+</div>
+<h2>
+Eu &amp; você.
+</h2>
+<p>
+Que a gente continue colecionando lugares, viagens,
+abraços, fotos e motivos para sorrir juntos.
+</p>
+<div class="love">
+Paula, eu te amo.
+</div>
+</div>
+</section>
+<footer>
+Feito por Mayron, para Paula — com amor e muitas lembranças.
+</footer>
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+<button class="close" id="close">
+×
+</button>
+<img id="lightImg" alt="Foto ampliada">
+</div>
+<!-- BOTÃO DA MÚSICA -->
+<button class="floatMusic" id="floatMusic">
+▶
+</button>
 <script>
-/* =====================================================
-  REVEAL
-===================================================== */
-const observer =
- new IntersectionObserver(
-   entries => {
-     entries.forEach(entry => {
-       if(entry.isIntersecting) {
-         entry.target.classList.add("show");
-         observer.unobserve(entry.target);
-       }
-     });
-   },
-   {
-     threshold:.12
-   }
- );
-
-document
- .querySelectorAll(".reveal")
- .forEach(element => {
-   observer.observe(element);
- });
-
-/* =====================================================
-  PROGRESSO DA PÁGINA
-===================================================== */
-const progressBar =
- document.getElementById("progressBar");
-
-window.addEventListener(
- "scroll",
- () => {
-   const scrollTop =
-     window.scrollY;
-   const height =
-     document.documentElement.scrollHeight -
-     window.innerHeight;
-   const progress =
-     height > 0
-       ? (scrollTop / height) * 100
-       : 0;
-   progressBar.style.width =
-     progress + "%";
- },
- {
-   passive:true
- }
+/* =========================
+ UTILITÁRIOS
+========================= */
+const $ = selector =>
+document.querySelector(selector);
+const $$ = selector =>
+document.querySelectorAll(selector);
+/* =========================
+ BARRA DE PROGRESSO
+========================= */
+const progress = $('#progress');
+addEventListener(
+'scroll',
+() => {
+let height =
+document.documentElement.scrollHeight - innerHeight;
+progress.style.width =
+(height ? scrollY / height * 100 : 0) + '%';
+},
+{
+passive:true
+}
 );
-
-/* =====================================================
-  NAVEGAÇÃO
-===================================================== */
-const topNav =
- document.getElementById("topNav");
-
-window.addEventListener(
- "scroll",
- () => {
-   if(window.scrollY > window.innerHeight * .55) {
-     topNav.classList.add("visible");
-   } else {
-     topNav.classList.remove("visible");
-   }
- },
- {
-   passive:true
- }
+/* =========================
+ ANIMAÇÕES AO ROLAR
+========================= */
+if('IntersectionObserver' in window){
+let observer =
+new IntersectionObserver(
+entries => {
+entries.forEach(entry => {
+if(entry.isIntersecting){
+entry.target.classList.add('visible');
+observer.unobserve(entry.target);
+}
+});
+},
+{
+threshold:.12
+}
 );
-
-/* =====================================================
-  LIGHTBOX
-===================================================== */
+$$('.reveal').forEach(
+element =>
+observer.observe(element)
+);
+}else{
+$$('.reveal').forEach(
+element =>
+element.classList.add('visible')
+);
+}
+/* =========================
+ LIGHTBOX
+========================= */
 const lightbox =
- document.getElementById("lightbox");
-const lightboxImage =
- document.getElementById("lightboxImage");
-const lightboxClose =
- document.getElementById("lightboxClose");
-
-document
- .querySelectorAll(".photo-wrap img")
- .forEach(img => {
-   img.parentElement.addEventListener(
-     "click",
-     () => {
-       lightboxImage.src =
-         img.src;
-       lightboxImage.alt =
-         img.alt;
-       lightbox.classList.add(
-         "active"
-       );
-       document.body.style.overflow =
-         "hidden";
-     }
-   );
- });
-
-function closeLightbox() {
- lightbox.classList.remove(
-   "active"
- );
- document.body.style.overflow =
-   "";
+$('#lightbox');
+const lightImg =
+$('#lightImg');
+$$('.photo').forEach(photo => {
+photo.onclick = () => {
+lightImg.src =
+photo.dataset.img;
+lightImg.alt =
+photo.querySelector('img').alt;
+lightbox.classList.add('open');
+document.body.style.overflow =
+'hidden';
+};
+});
+function closeLB(){
+lightbox.classList.remove('open');
+document.body.style.overflow =
+'';
 }
-
-lightboxClose.addEventListener(
- "click",
- closeLightbox
-);
-
-lightbox.addEventListener(
- "click",
- event => {
-   if(event.target === lightbox) {
-     closeLightbox();
-   }
- }
-);
-
-document.addEventListener(
- "keydown",
- event => {
-   if(
-     event.key === "Escape" &&
-     lightbox.classList.contains("active")
-   ) {
-     closeLightbox();
-   }
- }
-);
-
-/* =====================================================
-  MÚSICA
-===================================================== */
+$('#close').onclick =
+closeLB;
+lightbox.onclick =
+event => {
+if(event.target === lightbox){
+closeLB();
+}
+};
+document.onkeydown =
+event => {
+if(event.key === 'Escape'){
+closeLB();
+}
+};
+/* =========================
+ MÚSICA
+========================= */
 const audio =
- document.getElementById("mainAudio");
-const musicButton =
- document.getElementById("musicFloating");
-
-function updateMusicButton() {
- if(audio.paused) {
-   musicButton.textContent =
-     "♫";
-   musicButton.classList.remove(
-     "playing"
-   );
- } else {
-   musicButton.textContent =
-     "Ⅱ";
-   musicButton.classList.add(
-     "playing"
-   );
- }
+$('#audio');
+const music =
+$('#music');
+const floatMusic =
+$('#floatMusic');
+audio.onplay =
+() => {
+music.classList.add('play');
+floatMusic.textContent =
+'Ⅱ';
+};
+audio.onpause =
+() => {
+music.classList.remove('play');
+floatMusic.textContent =
+'▶';
+};
+floatMusic.onclick =
+() => {
+if(audio.paused){
+audio.play().catch(
+() => {}
+);
+}else{
+audio.pause();
 }
-
-audio.addEventListener(
- "play",
- updateMusicButton
+};
+addEventListener(
+'scroll',
+() => {
+floatMusic.classList.toggle(
+'show',
+$('#nossa-musica').getBoundingClientRect().bottom < 0
 );
-
-audio.addEventListener(
- "pause",
- updateMusicButton
-);
-
-musicButton.addEventListener(
- "click",
- () => {
-   if(audio.paused) {
-     audio.play();
-   } else {
-     audio.pause();
-   }
- }
-);
-
-/* =====================================================
-  MOSTRAR BOTÃO DE MÚSICA
-===================================================== */
-const musicSection =
- document.getElementById("nossa-musica");
-
-const musicObserver =
- new IntersectionObserver(
-   entries => {
-     entries.forEach(entry => {
-       if(entry.isIntersecting) {
-         musicButton.classList.add(
-           "show"
-         );
-       } else if(
-         window.scrollY <
-         musicSection.offsetTop
-       ) {
-         musicButton.classList.remove(
-           "show"
-         );
-       }
-     });
-   },
-   {
-     threshold:.15
-   }
- );
-
-musicObserver.observe(
- musicSection
-);
-
-/* =====================================================
-  CORAÇÕES DISCRETOS
-===================================================== */
-let heartTimer = null;
-
-function createHeart() {
- if(
-   document.hidden ||
-   window.matchMedia(
-     "(prefers-reduced-motion: reduce)"
-   ).matches
- ) {
-   return;
- }
- const heart =
-   document.createElement("div");
- heart.className =
-   "floating-heart";
- heart.textContent =
-   Math.random() > .5
-     ? "♡"
-     : "♥";
- heart.style.left =
-   Math.random() * 100 + "vw";
- heart.style.bottom =
-   "-30px";
- heart.style.fontSize =
-   (12 + Math.random() * 12) + "px";
- heart.style.animationDuration =
-   (6 + Math.random() * 4) + "s";
- document.body.appendChild(
-   heart
- );
- setTimeout(
-   () => heart.remove(),
-   10000
- );
+},
+{
+passive:true
 }
-
-heartTimer =
- setInterval(
-   createHeart,
-   6500
- );
-
-/* =====================================================
-  CORAÇÃO AO CLICAR NO FINAL
-===================================================== */
-const finalSection =
- document.getElementById("final");
-
-let finalTriggered = false;
-
-const finalObserver =
- new IntersectionObserver(
-   entries => {
-     entries.forEach(entry => {
-       if(
-         entry.isIntersecting &&
-         !finalTriggered
-       ) {
-         finalTriggered = true;
-         for(
-           let i = 0;
-           i < 8;
-           i++
-         ) {
-           setTimeout(
-             createHeart,
-             i * 220
-           );
-         }
-       }
-     });
-   },
-   {
-     threshold:.4
-   }
- );
-
-finalObserver.observe(
- finalSection
 );
-
-/* =====================================================
-  CORRIGE REPRODUÇÃO AO NAVEGAR
-===================================================== */
-document
- .querySelectorAll('a[href^="#"]')
- .forEach(link => {
-   link.addEventListener(
-     "click",
-     event => {
-       const target =
-         document.querySelector(
-           link.getAttribute("href")
-         );
-       if(target) {
-         event.preventDefault();
-         target.scrollIntoView({
-           behavior:"smooth",
-           block:"start"
-         });
-       }
-     }
-   );
- });
+/* =========================
+ ARQUIVO CONFIDENCIAL
+========================= */
+$$('.secret').forEach(card => {
+const button =
+card.querySelector('.revealBtn');
+button.onclick =
+() => {
+card.classList.toggle('open');
+button.textContent =
+card.classList.contains('open')
+?
+' Informação revelada'
+:
+' Revelar informação';
+};
+});
+/* =========================
+ QUIZ
+========================= */
+const qs = [
+[
+'Quantas fotos foram colocadas na história do site?',
+[
+'10',
+'15',
+'17',
+'20'
+],
+2,
+'17! Esse número tem um significado especial para nós.'
+],
+[
+'Como foi o pace da nossa primeira corrida oficial?',
+[
+'De atleta olímpico',
+'De tartaruga kkkkk',
+'De foguete',
+'Nem terminamos'
+],
+1,
+'Pace de tartaruga, oficialmente registrado. '
+],
+[
+'O que aconteceu na nossa primeira viagem juntos?',
+[
+'Perdemos o avião',
+'Furamos o pneu',
+'Esquecemos a mala',
+'Nada deu errado'
+],
+1,
+'Furamos o pneu e ainda teve quase PT kkkkk.'
+],
+[
+'Qual animal aparece em uma das nossas histórias pedindo comida?',
+[
+'Cachorro',
+'Gato',
+'Candy',
+'Papagaio'
+],
+2,
+'Candy! '
+],
+[
+'Quanto aproximadamente gastamos para ir ao evento no circo?',
+[
+'R$ 50',
+'R$ 100',
+'Quase R$ 300',
+'R$ 1.000'
+],
+2,
+'Quase R$ 300,00 — mas valeu MUITOOO a pena.'
+],
+[
+'Qual é a ideia principal dessa história?',
+[
+'Viajar o máximo possível',
+'Tirar muitas fotos',
+'Continuar construindo uma vida juntos',
+'Ganhar o quiz'
+],
+2,
+'Continuar construindo uma vida juntos. '
+],
+[
+'Qual número aparece como uma pequena assinatura desta história?',
+[
+'7',
+'12',
+'17',
+'25'
+],
+2,
+'17. Por isso temos 17 memórias.'
+],
+[
+'Depois de tudo isso, quem Mayron escolheria novamente?',
+[
+'A sorte',
+'A viagem',
+'Paula',
+'O pace de tartaruga'
+],
+2,
+'Paula. Sem dúvida. '
+]
+];
+let qi = 0;
+let pts = 0;
+let answered = false;
+/* =========================
+ RENDERIZA PERGUNTA
+========================= */
+function render(){
+answered = false;
+let q =
+qs[qi];
+$('#qnum').textContent =
+`Pergunta ${qi+1} de ${qs.length}`;
+$('#score').textContent =
+`Pontos: ${pts}`;
+$('#qbar').style.width =
+(qi / qs.length * 100) + '%';
+$('#question').textContent =
+q[0];
+$('#feedback').textContent =
+'';
+$('#next').style.display =
+'none';
+let box =
+$('#answers');
+box.innerHTML =
+'';
+q[1].forEach(
+(answer,index) => {
+let button =
+document.createElement('button');
+button.className =
+'answer';
+button.textContent =
+answer;
+button.onclick =
+() =>
+answerQuestion(
+index,
+button
+);
+box.appendChild(button);
+}
+);
+}
+/* =========================
+ RESPONDE
+========================= */
+function answerQuestion(
+index,
+button
+){
+if(answered)
+return;
+answered =
+true;
+let q =
+qs[qi];
+let buttons =
+$$('.answer');
+buttons.forEach(
+button =>
+button.disabled =
+true
+);
+if(index === q[2]){
+pts++;
+button.classList.add(
+'correct'
+);
+$('#feedback').textContent =
+'✓ Acertou! ' +
+q[3];
+}else{
+button.classList.add(
+'wrong'
+);
+buttons[q[2]]
+.classList.add(
+'correct'
+);
+$('#feedback').textContent =
+'Quase! ' +
+q[3];
+}
+$('#score').textContent =
+`Pontos: ${pts}`;
+$('#qbar').style.width =
+((qi+1) / qs.length * 100) + '%';
+$('#next').style.display =
+'inline-flex';
+$('#next').textContent =
+qi === qs.length - 1
+?
+'Ver meu resultado '
+:
+'Próxima pergunta →';
+}
+/* =========================
+ INICIA QUIZ
+========================= */
+function start(){
+qi = 0;
+pts = 0;
+$('#quizStart').style.display =
+'none';
+$('#result')
+.classList.remove('show');
+$('#game').style.display =
+'block';
+render();
+}
+/* =========================
+ FINAL DO QUIZ
+========================= */
+function finish(){
+$('#game').style.display =
+'none';
+$('#result')
+.classList.add('show');
+$('#final').textContent =
+`${pts}/${qs.length}`;
+let title;
+let message;
+if(pts === 8){
+title =
+'Arquivo completo. ';
+message =
+'Você oficialmente conhece essa história de cor. Nota máxima!';
+}
+else if(pts >= 6){
+title =
+'Investigadora oficial. ';
+message =
+'Você conhece muito bem a nossa história. Algumas informações 
+escaparam, mas o essencial está aí.';
+}
+else if(pts >= 4){
+title =
+'Boa tentativa! ';
+message =
+'Temos algumas lacunas no dossiê, mas nada que mais alguns 
+momentos juntos não resolvam.';
+}
+else{
+title =
+'Precisamos conversar... kkkkk';
+message =
+'O arquivo confidencial recomenda revisar as memórias e tentar 
+novamente.';
+}
+$('#resultTitle').textContent =
+title;
+$('#resultMsg').textContent =
+message;
+}
+$('#start').onclick =
+start;
+$('#restart').onclick =
+start;
+$('#next').onclick =
+() => {
+if(!answered)
+return;
+if(qi < qs.length - 1){
+qi++;
+render();
+}else{
+finish();
+}
+};
+/* =========================
+ CORAÇÕES
+========================= */
+setInterval(
+() => {
+let heart =
+document.createElement('span');
+heart.className =
+'heart';
+heart.textContent =
+Math.random() > .35
+?
+'♡'
+:
+'♥';
+heart.style.left =
+Math.random() * 100 + '%';
+heart.style.fontSize =
+12 + Math.random() * 15 + 'px';
+heart.style.animationDuration =
+7 + Math.random() * 7 + 's';
+$('#hearts')
+.appendChild(heart);
+setTimeout(
+() =>
+heart.remove(),
+15000
+);
+},
+2400
+);
 </script>
-
 </body>
 </html>
