@@ -2,1608 +2,2171 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#fff8f5">
-
-<title>Para Paula Fernanda Massetti de Lima — de Mayron Lavra Cutrim</title>
-
+<meta
+ name="viewport"
+ content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
+<meta
+ name="theme-color"
+ content="#fff8f5"
+>
+<meta
+ name="description"
+ content="Uma pequena declaração de Mayron para Paula."
+>
+<title>Paula & Mayron ❤️</title>
 <style>
-
+/* =====================================================
+  BASE
+===================================================== */
 :root {
-  --bg:#fff9f6;
-  --paper:#fffdfb;
-  --ink:#352a2b;
-  --muted:#7d6d70;
-  --rose:#d98f9c;
-  --rose2:#f3d5d9;
-  --wine:#7d3d4a;
-  --gold:#b58a55;
-  --shadow:0 24px 70px rgba(78,42,48,.12);
+ --bg:#fff9f6;
+ --paper:#fffdfb;
+ --ink:#352a2b;
+ --muted:#806f72;
+ --rose:#d98f9c;
+ --rose-light:#f3d5d9;
+ --rose-soft:#f9e7e8;
+ --wine:#7d3d4a;
+ --wine-dark:#2f292b;
+ --gold:#b58a55;
+ --gold-light:#d9b77f;
+ --white:#ffffff;
+ --shadow:
+   0 25px 70px rgba(78,42,48,.13);
+ --radius:14px;
 }
-
 * {
-  box-sizing:border-box;
+ box-sizing:border-box;
 }
-
 html {
-  scroll-behavior:smooth;
+ scroll-behavior:smooth;
 }
-
 body {
-  margin:0;
-  background:var(--bg);
-  color:var(--ink);
-  font-family:
-    Inter,
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-  overflow-x:hidden;
+ margin:0;
+ background:var(--bg);
+ color:var(--ink);
+ font-family:
+   Inter,
+   ui-sans-serif,
+   system-ui,
+   -apple-system,
+   BlinkMacSystemFont,
+   "Segoe UI",
+   sans-serif;
+ overflow-x:hidden;
 }
-
-body:before {
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  opacity:.35;
-  background-image:
-    radial-gradient(#c99 0.7px,transparent .7px);
-  background-size:18px 18px;
-  mask-image:
-    linear-gradient(to bottom,black,transparent 80%);
+/* =====================================================
+  TEXTURA
+===================================================== */
+body::before {
+ content:"";
+ position:fixed;
+ inset:0;
+ pointer-events:none;
+ z-index:9999;
+ opacity:.22;
+ background-image:
+   radial-gradient(
+     #c99 0.6px,
+     transparent .7px
+   );
+ background-size:18px 18px;
+ mask-image:
+   linear-gradient(
+     to bottom,
+     black,
+     transparent 85%
+   );
 }
-
-a {
-  color:inherit;
+/* =====================================================
+  BARRA DE PROGRESSO
+===================================================== */
+.progress-bar {
+ position:fixed;
+ top:0;
+ left:0;
+ width:0%;
+ height:3px;
+ background:
+   linear-gradient(
+     90deg,
+     var(--rose),
+     var(--gold)
+   );
+ z-index:10000;
+ transition:width .1s linear;
 }
-
-/* =========================
-   HERO
-========================= */
-
+/* =====================================================
+  NAVEGAÇÃO
+===================================================== */
+.top-nav {
+ position:fixed;
+ top:18px;
+ left:50%;
+ transform:translateX(-50%);
+ z-index:9000;
+ display:flex;
+ align-items:center;
+ gap:8px;
+ padding:7px;
+ border:1px solid rgba(125,61,74,.1);
+ background:rgba(255,253,251,.72);
+ backdrop-filter:blur(14px);
+ -webkit-backdrop-filter:blur(14px);
+ border-radius:50px;
+ box-shadow:
+   0 10px 35px rgba(80,40,45,.08);
+ opacity:0;
+ pointer-events:none;
+ transition:
+   opacity .4s ease,
+   transform .4s ease;
+}
+.top-nav.visible {
+ opacity:1;
+ pointer-events:auto;
+}
+.top-nav a {
+ width:34px;
+ height:34px;
+ display:grid;
+ place-items:center;
+ border-radius:50%;
+ text-decoration:none;
+ color:var(--wine);
+ font-size:.85rem;
+ transition:.25s ease;
+}
+.top-nav a:hover {
+ background:var(--rose-soft);
+ transform:scale(1.08);
+}
+/* =====================================================
+  CORAÇÕES FLUTUANTES
+===================================================== */
+.floating-heart {
+ position:fixed;
+ pointer-events:none;
+ z-index:5;
+ color:var(--rose);
+ opacity:0;
+ animation:
+   floatHeart 7s linear forwards;
+}
+@keyframes floatHeart {
+ 0% {
+   transform:
+     translateY(30px)
+     scale(.7)
+     rotate(0deg);
+   opacity:0;
+ }
+ 15% {
+   opacity:.5;
+ }
+ 85% {
+   opacity:.25;
+ }
+ 100% {
+   transform:
+     translateY(-100vh)
+     scale(1.2)
+     rotate(30deg);
+   opacity:0;
+ }
+}
+/* =====================================================
+  HERO
+===================================================== */
 .hero {
-  min-height:100svh;
-  display:grid;
-  place-items:center;
-  padding:60px 20px;
-  position:relative;
-  overflow:hidden;
+ min-height:100svh;
+ display:grid;
+ place-items:center;
+ padding:
+   90px 20px
+   80px;
+ position:relative;
+ overflow:hidden;
 }
-
-.hero:after {
-  content:"";
-  position:absolute;
-  width:620px;
-  height:620px;
-  border-radius:50%;
-  background:
-    radial-gradient(
-      circle,
-      var(--rose2),
-      transparent 68%
-    );
-  right:-260px;
-  top:-170px;
-  filter:blur(4px);
+.hero::before {
+ content:"";
+ position:absolute;
+ width:750px;
+ height:750px;
+ border-radius:50%;
+ background:
+   radial-gradient(
+     circle,
+     rgba(243,213,217,.8),
+     transparent 68%
+   );
+ left:-350px;
+ bottom:-350px;
+ filter:blur(5px);
 }
-
+.hero::after {
+ content:"";
+ position:absolute;
+ width:700px;
+ height:700px;
+ border-radius:50%;
+ background:
+   radial-gradient(
+     circle,
+     rgba(243,213,217,.9),
+     transparent 68%
+   );
+ right:-330px;
+ top:-260px;
+}
 .hero-inner {
-  width:min(1100px,100%);
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:50px;
-  align-items:center;
-  position:relative;
-  z-index:1;
+ width:min(1100px,100%);
+ display:grid;
+ grid-template-columns:
+   1fr 1fr;
+ gap:65px;
+ align-items:center;
+ position:relative;
+ z-index:2;
 }
-
+.hero-copy {
+ animation:
+   heroText 1.1s ease both;
+}
+@keyframes heroText {
+ from {
+   opacity:0;
+   transform:
+     translateY(30px);
+ }
+ to {
+   opacity:1;
+   transform:none;
+ }
+}
 .kicker {
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:var(--wine);
-  font-size:.75rem;
-  font-weight:700;
+ letter-spacing:.24em;
+ text-transform:uppercase;
+ color:var(--wine);
+ font-size:.7rem;
+ font-weight:800;
 }
-
 h1 {
-  font-family:Georgia,serif;
-  font-size:clamp(4rem,10vw,8rem);
-  line-height:.82;
-  margin:20px 0;
-  color:var(--wine);
-  font-weight:500;
+ font-family:Georgia,serif;
+ font-size:
+   clamp(3.8rem,9vw,7.8rem);
+ line-height:.82;
+ margin:22px 0;
+ color:var(--wine);
+ font-weight:500;
+ letter-spacing:-.055em;
 }
-
 .hero h2 {
-  font-size:clamp(1.1rem,2.5vw,1.6rem);
-  font-weight:400;
-  line-height:1.55;
-  max-width:540px;
-  color:var(--muted);
+ font-size:
+   clamp(1.05rem,2.5vw,1.45rem);
+ font-weight:400;
+ line-height:1.7;
+ max-width:550px;
+ color:var(--muted);
 }
-
 .signature {
-  font-family:"Brush Script MT",cursive;
-  font-size:2rem;
-  color:var(--gold);
-  margin-top:32px;
+ font-family:
+   "Brush Script MT",
+   cursive;
+ font-size:2.15rem;
+ color:var(--gold);
+ margin-top:30px;
 }
-
 .audio-nav {
-  display:inline-block;
-  margin-top:22px;
-  color:var(--wine);
-  text-decoration:none;
-  font-size:.82rem;
-  font-weight:700;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  border-bottom:1px solid var(--gold);
-  padding-bottom:5px;
+ display:inline-flex;
+ align-items:center;
+ gap:8px;
+ margin-top:25px;
+ color:var(--wine);
+ text-decoration:none;
+ font-size:.78rem;
+ font-weight:800;
+ letter-spacing:.1em;
+ text-transform:uppercase;
+ border-bottom:1px solid var(--gold);
+ padding-bottom:7px;
+ transition:.3s ease;
 }
-
+.audio-nav:hover {
+ letter-spacing:.14em;
+}
+/* =====================================================
+  FOTO HERO
+===================================================== */
 .hero-photo {
-  position:relative;
-  max-width:470px;
-  justify-self:center;
-  transform:rotate(2deg);
-  filter:
-    drop-shadow(
-      0 30px 35px rgba(70,30,40,.2)
-    );
+ position:relative;
+ max-width:460px;
+ justify-self:center;
+ transform:
+   rotate(2.2deg);
+ filter:
+   drop-shadow(
+     0 30px 35px rgba(70,30,40,.2)
+   );
+ animation:
+   heroPhoto 1.2s .15s ease both;
 }
-
+@keyframes heroPhoto {
+ from {
+   opacity:0;
+   transform:
+     translateY(40px)
+     rotate(7deg)
+     scale(.94);
+ }
+ to {
+   opacity:1;
+   transform:
+     rotate(2.2deg);
+ }
+}
 .hero-photo img {
-  width:100%;
-  aspect-ratio:4/5;
-  object-fit:cover;
-  border:14px solid white;
-  border-bottom-width:45px;
-  box-shadow:var(--shadow);
-  display:block;
+ width:100%;
+ aspect-ratio:4/5;
+ object-fit:cover;
+ border:14px solid white;
+ border-bottom-width:48px;
+ box-shadow:var(--shadow);
+ display:block;
 }
-
-.hero-photo:before,
-.hero-photo:after {
-  content:"♡";
-  position:absolute;
-  font-size:52px;
-  color:var(--rose);
-  z-index:2;
+.hero-photo::before {
+ content:"♡";
+ position:absolute;
+ left:-32px;
+ top:-35px;
+ font-size:55px;
+ color:var(--rose);
+ z-index:2;
+ transform:rotate(-15deg);
 }
-
-.hero-photo:before {
-  left:-28px;
-  top:-30px;
-  transform:rotate(-15deg);
+.hero-photo::after {
+ content:"♡";
+ position:absolute;
+ right:-27px;
+ bottom:4px;
+ font-size:50px;
+ color:var(--rose);
+ z-index:2;
+ transform:rotate(15deg);
 }
-
-.hero-photo:after {
-  right:-24px;
-  bottom:10px;
-  transform:rotate(15deg);
-}
-
 .scroll {
-  position:absolute;
-  bottom:28px;
-  left:50%;
-  transform:translateX(-50%);
-  font-size:.75rem;
-  color:var(--muted);
-  letter-spacing:.12em;
-  text-transform:uppercase;
+ position:absolute;
+ bottom:28px;
+ left:50%;
+ transform:
+   translateX(-50%);
+ font-size:.68rem;
+ color:var(--muted);
+ letter-spacing:.14em;
+ text-transform:uppercase;
+ z-index:3;
+ animation:
+   scrollHint 2s infinite;
 }
-
-/* =========================
-   SEÇÕES
-========================= */
-
+@keyframes scrollHint {
+ 0%,100% {
+   transform:
+     translateX(-50%)
+     translateY(0);
+ }
+ 50% {
+   transform:
+     translateX(-50%)
+     translateY(7px);
+ }
+}
+/* =====================================================
+  SEÇÕES
+===================================================== */
 .section {
-  padding:110px 20px;
+ padding:
+   125px 20px;
 }
-
 .container {
-  width:min(1100px,100%);
-  margin:auto;
+ width:min(1100px,100%);
+ margin:auto;
 }
-
 .center {
-  text-align:center;
+ text-align:center;
 }
-
 .eyebrow {
-  color:var(--wine);
-  font-weight:700;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  font-size:.72rem;
+ color:var(--wine);
+ font-weight:800;
+ letter-spacing:.16em;
+ text-transform:uppercase;
+ font-size:.68rem;
 }
-
 .section h2 {
-  font-family:Georgia,serif;
-  font-weight:500;
-  font-size:clamp(2.5rem,6vw,4.5rem);
-  line-height:1;
-  margin:14px 0 18px;
-  color:var(--wine);
+ font-family:Georgia,serif;
+ font-weight:500;
+ font-size:
+   clamp(2.5rem,6vw,4.6rem);
+ line-height:1;
+ margin:
+   15px 0 20px;
+ color:var(--wine);
+ letter-spacing:-.03em;
 }
-
 .lead {
-  max-width:680px;
-  margin:0 auto;
-  color:var(--muted);
-  font-size:1.08rem;
-  line-height:1.8;
+ max-width:680px;
+ margin:0 auto;
+ color:var(--muted);
+ font-size:1.05rem;
+ line-height:1.85;
 }
-
 .heart-line {
-  display:flex;
-  align-items:center;
-  gap:15px;
-  justify-content:center;
-  margin:26px 0;
-  color:var(--rose);
+ display:flex;
+ align-items:center;
+ gap:15px;
+ justify-content:center;
+ margin:30px 0;
+ color:var(--rose);
 }
-
-.heart-line:before,
-.heart-line:after {
-  content:"";
-  height:1px;
-  background:#e7c5c9;
-  width:90px;
+.heart-line::before,
+.heart-line::after {
+ content:"";
+ height:1px;
+ background:#e7c5c9;
+ width:90px;
 }
-
-/* =========================
-   GALERIA
-========================= */
-
+/* =====================================================
+  GALERIA
+===================================================== */
 .gallery {
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:70px 45px;
-  margin-top:70px;
+ display:grid;
+ grid-template-columns:
+   repeat(2,1fr);
+ gap:
+   80px 45px;
+ margin-top:80px;
 }
-
-.memory:nth-child(even) {
-  transform:translateY(65px);
-}
-
 .memory {
-  background:var(--paper);
-  box-shadow:var(--shadow);
-  border-radius:6px;
-  overflow:hidden;
+ background:var(--paper);
+ box-shadow:var(--shadow);
+ border-radius:var(--radius);
+ overflow:hidden;
+ transition:
+   transform .5s ease,
+   box-shadow .5s ease;
+ position:relative;
 }
-
+.memory:hover {
+ transform:
+   translateY(-8px)
+   rotate(.2deg);
+ box-shadow:
+   0 35px 80px rgba(78,42,48,.18);
+}
+.memory:nth-child(even) {
+ transform:
+   translateY(65px)
+   rotate(-.3deg);
+}
+.memory:nth-child(even):hover {
+ transform:
+   translateY(57px)
+   rotate(0deg);
+}
 .photo-wrap {
-  aspect-ratio:4/5;
-  overflow:hidden;
-  background:#eee;
+ aspect-ratio:4/5;
+ overflow:hidden;
+ background:#eee;
+ cursor:zoom-in;
+ position:relative;
 }
-
+.photo-wrap::after {
+ content:"＋";
+ position:absolute;
+ right:15px;
+ bottom:15px;
+ width:34px;
+ height:34px;
+ display:grid;
+ place-items:center;
+ border-radius:50%;
+ background:
+   rgba(255,255,255,.9);
+ color:var(--wine);
+ font-size:1.1rem;
+ opacity:0;
+ transform:scale(.8);
+ transition:.3s ease;
+}
+.memory:hover .photo-wrap::after {
+ opacity:1;
+ transform:scale(1);
+}
 .photo-wrap img {
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-  transition:transform .7s ease;
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ display:block;
+ transition:
+   transform .8s cubic-bezier(.2,.7,.2,1);
 }
-
 .memory:hover img {
-  transform:scale(1.035);
+ transform:scale(1.055);
 }
-
 .memory-copy {
-  padding:24px 25px 28px;
-  position:relative;
+ padding:
+   26px 27px 31px;
+ position:relative;
 }
-
 .number {
-  font-size:.7rem;
-  letter-spacing:.14em;
-  color:var(--gold);
-  font-weight:800;
+ font-size:.67rem;
+ letter-spacing:.16em;
+ color:var(--gold);
+ font-weight:900;
 }
-
 .memory h3 {
-  font-family:Georgia,serif;
-  font-size:1.7rem;
-  font-weight:500;
-  color:var(--wine);
-  margin:9px 0;
+ font-family:Georgia,serif;
+ font-size:1.65rem;
+ font-weight:500;
+ color:var(--wine);
+ margin:
+   9px 0 11px;
 }
-
 .memory p {
-  color:var(--muted);
-  line-height:1.75;
-  margin:0;
+ color:var(--muted);
+ line-height:1.8;
+ margin:0;
 }
-
-/* =========================
-   ÁUDIO
-========================= */
-
+/* =====================================================
+  LIGHTBOX
+===================================================== */
+.lightbox {
+ position:fixed;
+ inset:0;
+ z-index:20000;
+ background:
+   rgba(35,24,27,.94);
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ padding:25px;
+ opacity:0;
+ visibility:hidden;
+ transition:
+   opacity .35s ease,
+   visibility .35s ease;
+ backdrop-filter:blur(10px);
+}
+.lightbox.active {
+ opacity:1;
+ visibility:visible;
+}
+.lightbox-content {
+ max-width:min(900px,95vw);
+ max-height:90vh;
+ position:relative;
+ transform:scale(.92);
+ transition:transform .4s ease;
+}
+.lightbox.active .lightbox-content {
+ transform:scale(1);
+}
+.lightbox img {
+ display:block;
+ max-width:100%;
+ max-height:82vh;
+ object-fit:contain;
+ border:
+   8px solid white;
+ box-shadow:
+   0 30px 100px rgba(0,0,0,.45);
+}
+.lightbox-close {
+ position:absolute;
+ right:-15px;
+ top:-15px;
+ width:42px;
+ height:42px;
+ border:0;
+ border-radius:50%;
+ background:white;
+ color:var(--wine);
+ font-size:1.4rem;
+ cursor:pointer;
+ box-shadow:
+   0 8px 25px rgba(0,0,0,.2);
+}
+/* =====================================================
+  ÁUDIO
+===================================================== */
 .audio-memory {
-  padding:110px 20px;
-  background:
-    linear-gradient(
-      135deg,
-      #2f292b,
-      #4b3339
-    );
-  color:#fff;
-  position:relative;
-  overflow:hidden;
+ padding:
+   120px 20px;
+ background:
+   linear-gradient(
+     135deg,
+     #292426,
+     #4b3339
+   );
+ color:#fff;
+ position:relative;
+ overflow:hidden;
 }
-
-.audio-memory:before {
-  content:"";
-  position:absolute;
-  width:520px;
-  height:520px;
-  border-radius:50%;
-  background:
-    radial-gradient(
-      circle,
-      rgba(217,143,156,.22),
-      transparent 68%
-    );
-  left:-220px;
-  top:-180px;
+.audio-memory::before {
+ content:"";
+ position:absolute;
+ width:600px;
+ height:600px;
+ border-radius:50%;
+ background:
+   radial-gradient(
+     circle,
+     rgba(217,143,156,.23),
+     transparent 68%
+   );
+ left:-280px;
+ top:-220px;
 }
-
+.audio-memory::after {
+ content:"♫";
+ position:absolute;
+ right:8%;
+ top:12%;
+ font-family:Georgia,serif;
+ font-size:10rem;
+ color:
+   rgba(255,255,255,.025);
+}
 .audio-card {
-  width:min(900px,100%);
-  margin:auto;
-  position:relative;
-  z-index:1;
-  padding:55px clamp(28px,6vw,75px);
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(255,255,255,.07);
-  box-shadow:
-    0 25px 70px rgba(0,0,0,.22);
-  border-radius:10px;
-  text-align:center;
+ width:min(900px,100%);
+ margin:auto;
+ position:relative;
+ z-index:1;
+ padding:
+   60px
+   clamp(28px,6vw,75px);
+ border:
+   1px solid rgba(255,255,255,.14);
+ background:
+   rgba(255,255,255,.065);
+ box-shadow:
+   0 25px 70px rgba(0,0,0,.22);
+ border-radius:18px;
+ text-align:center;
+ backdrop-filter:blur(8px);
 }
-
 .audio-card .eyebrow {
-  color:#d9b77f;
+ color:var(--gold-light);
 }
-
 .audio-card h2 {
-  font-family:Georgia,serif;
-  font-size:clamp(2.5rem,6vw,4.4rem);
-  font-weight:500;
-  line-height:1;
-  margin:15px 0 18px;
-  color:#fff;
+ font-family:Georgia,serif;
+ font-size:
+   clamp(2.8rem,6vw,4.5rem);
+ font-weight:500;
+ line-height:1;
+ margin:
+   15px 0 20px;
+ color:#fff;
 }
-
 .audio-card p {
-  max-width:650px;
-  margin:0 auto 28px;
-  color:#e9dedf;
-  line-height:1.8;
+ max-width:650px;
+ margin:
+   0 auto 28px;
+ color:#e9dedf;
+ line-height:1.8;
 }
-
 .audio-player {
-  width:min(680px,100%);
-  margin:24px auto 0;
-  display:block;
-  border-radius:30px;
+ width:min(680px,100%);
+ margin:25px auto 0;
+ display:block;
+ border-radius:30px;
 }
-
 .audio-note {
-  margin-top:18px!important;
-  font-size:.82rem;
-  color:#d9b77f!important;
-  letter-spacing:.04em;
+ margin-top:18px!important;
+ font-size:.78rem;
+ color:var(--gold-light)!important;
+ letter-spacing:.04em;
 }
-
-/* =========================
-   TRIBUTE
-========================= */
-
+/* BOTÃO DE MÚSICA */
+.music-floating {
+ position:fixed;
+ right:20px;
+ bottom:20px;
+ width:52px;
+ height:52px;
+ border:1px solid rgba(255,255,255,.2);
+ border-radius:50%;
+ background:
+   rgba(125,61,74,.95);
+ color:white;
+ z-index:8000;
+ display:grid;
+ place-items:center;
+ cursor:pointer;
+ box-shadow:
+   0 12px 35px rgba(70,30,40,.25);
+ opacity:0;
+ transform:
+   scale(.7);
+ pointer-events:none;
+ transition:.4s ease;
+}
+.music-floating.show {
+ opacity:1;
+ transform:scale(1);
+ pointer-events:auto;
+}
+.music-floating.playing {
+ animation:
+   musicPulse 1.5s infinite;
+}
+@keyframes musicPulse {
+ 0%,100% {
+   box-shadow:
+     0 12px 35px rgba(70,30,40,.25);
+ }
+ 50% {
+   box-shadow:
+     0 12px 45px rgba(217,143,156,.55);
+ }
+}
+/* =====================================================
+  HOMENAGEM
+===================================================== */
 .tribute {
-  padding:120px 20px;
-  background:#2f292b;
-  color:#fff;
+ padding:
+   130px 20px;
+ background:#2f292b;
+ color:#fff;
+ position:relative;
+ overflow:hidden;
 }
-
+.tribute::before {
+ content:"";
+ position:absolute;
+ width:500px;
+ height:500px;
+ border-radius:50%;
+ background:
+   radial-gradient(
+     circle,
+     rgba(217,143,156,.12),
+     transparent 70%
+   );
+ right:-250px;
+ bottom:-250px;
+}
 .tribute-inner {
-  width:min(1050px,100%);
-  margin:auto;
-  display:grid;
-  grid-template-columns:minmax(280px,430px) 1fr;
-  gap:70px;
-  align-items:center;
+ width:min(1050px,100%);
+ margin:auto;
+ display:grid;
+ grid-template-columns:
+   minmax(280px,430px) 1fr;
+ gap:70px;
+ align-items:center;
+ position:relative;
+ z-index:2;
 }
-
 .tribute-photo {
-  position:relative;
+ position:relative;
 }
-
 .tribute-photo img {
-  width:100%;
-  display:block;
-  aspect-ratio:4/5;
-  object-fit:cover;
-  border:12px solid #fff;
-  box-shadow:
-    0 25px 60px rgba(0,0,0,.28);
+ width:100%;
+ display:block;
+ aspect-ratio:4/5;
+ object-fit:cover;
+ border:
+   12px solid #fff;
+ box-shadow:
+   0 25px 60px rgba(0,0,0,.3);
 }
-
-.tribute-photo:after {
-  content:"Uma lembrança para sempre";
-  position:absolute;
-  bottom:-16px;
-  right:-22px;
-  background:#b58a55;
-  color:#fff;
-  padding:10px 16px;
-  font-size:.72rem;
-  letter-spacing:.1em;
-  text-transform:uppercase;
+.tribute-photo::after {
+ content:"Uma lembrança para sempre";
+ position:absolute;
+ bottom:-16px;
+ right:-22px;
+ background:var(--gold);
+ color:#fff;
+ padding:10px 16px;
+ font-size:.68rem;
+ letter-spacing:.1em;
+ text-transform:uppercase;
 }
-
 .tribute-copy .eyebrow {
-  color:#d9b77f;
+ color:var(--gold-light);
 }
-
 .tribute-copy h2 {
-  font-family:Georgia,serif;
-  font-size:clamp(2.6rem,5vw,4.5rem);
-  font-weight:500;
-  line-height:1.05;
-  margin:15px 0 28px;
-  color:#fff;
+ font-family:Georgia,serif;
+ font-size:
+   clamp(2.7rem,5vw,4.6rem);
+ font-weight:500;
+ line-height:1.05;
+ margin:
+   15px 0 28px;
+ color:#fff;
 }
-
 .tribute-copy p {
-  font-family:Georgia,serif;
-  color:#e9dedf;
-  line-height:1.9;
-  font-size:1.06rem;
+ font-family:Georgia,serif;
+ color:#e9dedf;
+ line-height:1.95;
+ font-size:1.05rem;
 }
-
 .tribute-sign {
-  color:#d9b77f!important;
-  font-size:1.2rem!important;
-  margin-top:30px;
+ color:var(--gold-light)!important;
+ font-size:1.2rem!important;
+ margin-top:32px;
 }
-
-/* =========================
-   CARTA
-========================= */
-
+/* =====================================================
+  CARTA
+===================================================== */
 .letter {
-  padding:120px 20px;
-  background:
-    linear-gradient(
-      135deg,
-      #fff4f3,
-      #f9e7e8
-    );
+ padding:
+   130px 20px;
+ background:
+   linear-gradient(
+     135deg,
+     #fff4f3,
+     #f9e7e8
+   );
 }
-
 .letter-card {
-  max-width:780px;
-  margin:auto;
-  background:rgba(255,255,255,.8);
-  padding:55px clamp(28px,7vw,85px);
-  box-shadow:var(--shadow);
-  border:1px solid #f0d8da;
-  position:relative;
+ max-width:780px;
+ margin:auto;
+ background:
+   rgba(255,255,255,.86);
+ padding:
+   60px
+   clamp(28px,7vw,85px);
+ box-shadow:
+   0 30px 90px rgba(100,50,60,.13);
+ border:
+   1px solid #f0d8da;
+ position:relative;
+ border-radius:4px;
 }
-
-.letter-card:before {
-  content:"♡";
-  position:absolute;
-  right:28px;
-  top:20px;
-  color:#e3afb7;
-  font-size:28px;
+.letter-card::before {
+ content:"♡";
+ position:absolute;
+ right:28px;
+ top:20px;
+ color:#e3afb7;
+ font-size:28px;
 }
-
+.letter-card::after {
+ content:"";
+ position:absolute;
+ inset:12px;
+ border:
+   1px solid rgba(181,138,85,.16);
+ pointer-events:none;
+}
 .letter-card p {
-  font-family:Georgia,serif;
-  font-size:1.15rem;
-  line-height:2;
-  color:#544548;
+ font-family:Georgia,serif;
+ font-size:1.12rem;
+ line-height:2;
+ color:#544548;
 }
-
 .letter-card .big {
-  font-size:clamp(2rem,5vw,3.6rem);
-  line-height:1.1;
-  color:var(--wine);
-  margin:0 0 28px;
+ font-size:
+   clamp(2.1rem,5vw,3.7rem);
+ line-height:1.1;
+ color:var(--wine);
+ margin:
+   20px 0 32px;
 }
-
-/* =========================
-   FINAL
-========================= */
-
+/* =====================================================
+  FINAL
+===================================================== */
 .ending {
-  min-height:85svh;
-  display:grid;
-  place-items:center;
-  text-align:center;
-  padding:90px 20px;
+ min-height:90svh;
+ display:grid;
+ place-items:center;
+ text-align:center;
+ padding:
+   100px 20px;
+ position:relative;
+ overflow:hidden;
 }
-
+.ending::before {
+ content:"";
+ position:absolute;
+ width:600px;
+ height:600px;
+ border-radius:50%;
+ background:
+   radial-gradient(
+     circle,
+     rgba(243,213,217,.7),
+     transparent 70%
+   );
+ top:50%;
+ left:50%;
+ transform:
+   translate(-50%,-50%);
+ z-index:0;
+}
+.ending > div {
+ position:relative;
+ z-index:1;
+}
 .ending h2 {
-  font-size:clamp(3rem,9vw,7rem);
-  margin:10px 0;
-  font-family:Georgia,serif;
-  font-weight:500;
-  color:var(--wine);
+ font-size:
+   clamp(3.3rem,9vw,7rem);
+ margin:12px 0;
+ font-family:Georgia,serif;
+ font-weight:500;
+ color:var(--wine);
+ letter-spacing:-.05em;
 }
-
 .ending p {
-  font-size:1.15rem;
-  color:var(--muted);
-  line-height:1.8;
+ font-size:1.12rem;
+ color:var(--muted);
+ line-height:1.8;
+ max-width:620px;
+ margin-left:auto;
+ margin-right:auto;
 }
-
 .final-heart {
-  font-size:4rem;
-  color:var(--rose);
-  animation:pulse 1.8s infinite;
+ font-size:4rem;
+ color:var(--rose);
+ animation:
+   pulse 1.8s infinite;
+ filter:
+   drop-shadow(
+     0 10px 20px rgba(217,143,156,.25)
+   );
 }
-
-footer {
-  text-align:center;
-  padding:25px;
-  color:#a18c90;
-  font-size:.78rem;
-  letter-spacing:.08em;
-}
-
-/* =========================
-   ANIMAÇÕES
-========================= */
-
-.reveal {
-  opacity:0;
-  transform:translateY(35px);
-  transition:
-    opacity .9s ease,
-    transform .9s ease;
-}
-
-.reveal.show {
-  opacity:1;
-  transform:none;
-}
-
-.memory:nth-child(even).reveal.show {
-  transform:translateY(65px);
-}
-
 @keyframes pulse {
-
-  0%,
-  100% {
-    transform:scale(1);
-  }
-
-  50% {
-    transform:scale(1.13);
-  }
-
+ 0%,100% {
+   transform:scale(1);
+ }
+ 50% {
+   transform:scale(1.13);
+ }
 }
-
-/* =========================
-   MOBILE
-========================= */
-
+/* =====================================================
+  FOOTER
+===================================================== */
+footer {
+ text-align:center;
+ padding:
+   28px 20px;
+ color:#a18c90;
+ font-size:.73rem;
+ letter-spacing:.08em;
+}
+/* =====================================================
+  REVEAL
+===================================================== */
+.reveal {
+ opacity:0;
+ transform:
+   translateY(40px);
+ transition:
+   opacity 1s ease,
+   transform 1s cubic-bezier(.2,.7,.2,1);
+}
+.reveal.show {
+ opacity:1;
+ transform:none;
+}
+.memory:nth-child(even).reveal.show {
+ transform:
+   translateY(65px)
+   rotate(-.3deg);
+}
+/* =====================================================
+  MOBILE
+===================================================== */
 @media(max-width:760px) {
-
-  .hero-inner {
-    grid-template-columns:1fr;
-    gap:38px;
-    text-align:center;
-  }
-
-  .hero-photo {
-    width:min(88vw,400px);
-  }
-
-  .hero h2 {
-    margin-left:auto;
-    margin-right:auto;
-  }
-
-  .signature {
-    margin-top:22px;
-  }
-
-  .gallery {
-    grid-template-columns:1fr;
-    gap:45px;
-  }
-
-  .memory:nth-child(even) {
-    transform:none;
-  }
-
-  .memory:nth-child(even).reveal.show {
-    transform:none;
-  }
-
-  .section {
-    padding:80px 18px;
-  }
-
-  .tribute {
-    padding:85px 18px;
-  }
-
-  .tribute-inner {
-    grid-template-columns:1fr;
-    gap:45px;
-  }
-
-  .tribute-photo {
-    max-width:420px;
-    margin:auto;
-  }
-
-  .tribute-copy h2 {
-    font-size:2.8rem;
-  }
-
-  .audio-memory {
-    padding:80px 18px;
-  }
-
-  .audio-card {
-    padding:42px 22px;
-  }
-
+ .top-nav {
+   top:auto;
+   bottom:
+     calc(15px + env(safe-area-inset-bottom));
+ }
+ .hero {
+   padding:
+     90px 20px
+     100px;
+ }
+ .hero-inner {
+   grid-template-columns:1fr;
+   gap:48px;
+   text-align:center;
+ }
+ h1 {
+   font-size:
+     clamp(3.5rem,18vw,5.8rem);
+ }
+ .hero h2 {
+   margin-left:auto;
+   margin-right:auto;
+   font-size:1rem;
+ }
+ .signature {
+   margin-top:22px;
+ }
+ .hero-photo {
+   width:min(88vw,390px);
+ }
+ .gallery {
+   grid-template-columns:1fr;
+   gap:48px;
+ }
+ .memory:nth-child(even),
+ .memory:nth-child(even):hover {
+   transform:none;
+ }
+ .memory:nth-child(even).reveal.show {
+   transform:none;
+ }
+ .section {
+   padding:
+     90px 18px;
+ }
+ .section h2 {
+   font-size:2.8rem;
+ }
+ .lead {
+   font-size:.98rem;
+ }
+ .audio-memory {
+   padding:
+     90px 18px;
+ }
+ .audio-card {
+   padding:
+     45px 22px;
+ }
+ .tribute {
+   padding:
+     95px 18px;
+ }
+ .tribute-inner {
+   grid-template-columns:1fr;
+   gap:50px;
+ }
+ .tribute-photo {
+   max-width:420px;
+   margin:auto;
+ }
+ .tribute-copy h2 {
+   font-size:2.9rem;
+ }
+ .letter {
+   padding:
+     90px 18px;
+ }
+ .letter-card {
+   padding:
+     48px 25px;
+ }
+ .letter-card p {
+   font-size:1.05rem;
+ }
+ .ending {
+   min-height:80svh;
+ }
 }
-
+/* =====================================================
+  ACESSIBILIDADE
+===================================================== */
+@media(prefers-reduced-motion:reduce) {
+ *,
+ *::before,
+ *::after {
+   scroll-behavior:auto!important;
+   animation-duration:.01ms!important;
+   animation-iteration-count:1!important;
+   transition-duration:.01ms!important;
+ }
+}
 </style>
 </head>
 
 <body>
 
 <!-- =====================================================
-     HERO
+    PROGRESSO
 ===================================================== -->
-
-<section class="hero">
-
-  <div class="hero-inner">
-
-    <div>
-
-      <div class="kicker">
-        Uma pequena declaração para você
-      </div>
-
-      <h1>
-        Paula Massetti
-        <br>
-        <span style="font-size:.72em">&amp;</span>
-        Mayron Cutrim
-      </h1>
-
-      <h2>
-        Entre tantos caminhos, encontros e momentos,
-        a melhor parte da minha história é poder viver
-        tudo isso ao seu lado.
-      </h2>
-
-      <div class="signature">
-        Com amor, Mayron ♡
-      </div>
-
-      <a class="audio-nav" href="#nossa-musica">
-        Ouvir nossa música ↓
-      </a>
-
-    </div>
-
-    <div class="hero-photo">
-
-      <img
-        src="imagens/recordacao-01.jpg"
-        alt="Paula e Mayron juntos"
-      >
-
-    </div>
-
-  </div>
-
-  <div class="scroll">
-    role para lembrar da gente ↓
-  </div>
-
-</section>
-
+<div
+ class="progress-bar"
+ id="progressBar"
+></div>
 
 <!-- =====================================================
-     GALERIA
+    NAVEGAÇÃO
 ===================================================== -->
-
-<section class="section">
-
-  <div class="container center">
-
-    <div class="eyebrow">
-      Nossa história em fotografias
-    </div>
-
-    <h2>
-      Momentos que eu guardaria para sempre.
-    </h2>
-
-    <div class="heart-line">
-      ♥
-    </div>
-
-    <p class="lead">
-      Cada foto aqui é só um pedacinho daquilo que sinto.
-      Porque o que eu mais gosto não é apenas lembrar do
-      que vivemos, é pensar em tudo que ainda vamos viver.
-    </p>
-
-  </div>
-
-
-  <div class="container gallery">
-
-
-    <!-- 01 -->
-
-    <article class="memory reveal">
-
-      <div class="photo-wrap">
-
-        <img
-          src="imagens/recordacao-02.jpg"
-          alt="Primeiro evento juntos"
-          loading="lazy"
-        >
-
-      </div>
-
-      <div class="memory-copy">
-
-        <span class="number">
-          01
-        </span>
-
-        <h3>
-          Primeiro evento juntos
-        </h3>
-
-        <p>
-          Alguns momentos parecem simples na hora em que
-          acontecem. Depois, viram parte da nossa história
-          para sempre. Eu chegando "atrasado" e tu brigando comigo porque não levei um blaze kkkkk.
-        </p>
-
-      </div>
-
-    </article>
-
-
-    <!-- 02 -->
-
-    <article class="memory reveal">
-
-      <div class="photo-wrap">
-
-        <img
-          src="imagens/recordacao-03.jpg"
-          alt="Dia de gargalhadas"
-          loading="lazy"
-        >
-
-      </div>
-
-      <div class="memory-copy">
-
-        <span class="number">
-          02
-        </span>
-
-        <h3>
-          Dia de gargalhadas
-        </h3>
-
-        <p>
-          Eu gosto de você nas grandes aventuras e também
-          nos pequenos detalhes que só quem ama de verdade
-          aprende a perceber. A gente gastando quase R$ 300,00 para ir ver um evento no circo...mas valeu MUITOOO a pena só de ver cada sorriso seu.
-        </p>
-
-      </div>
-
-    </article>
-
-
-    <!-- 03 -->
-
-    <article class="memory reveal">
-
-      <div class="photo-wrap">
-
-        <img
-          src="imagens/recordacao-04.jpg"
-          alt="Primeira corrida oficial juntos"
-          loading="lazy"
-        >
-
-      </div>
-
-      <div class="memory-copy">
-
-        <span class="number">
-          03
-        </span>
-
-        <h3>
-          Primeira corrida oficial juntos
-        </h3>
-
-        <p>
-          Entre sorrisos, viagens, abraços e aquele nosso
-          jeito de aproveitar a vida, fomos construindo
-          uma história só nossa. Nossa primeira corrida oficial juntos, com um pace de tartaruga kkkkk.
-        </p>
-
-      </div>
-
-    </article>
-
-
-    <!-- 04 -->
-
-    <article class="memory reveal">
-
-      <div class="photo-wrap">
-
-        <img
-          src="imagens/recordacao-05.jpg"
-          alt="Todos a booordooo!!"
-          loading="lazy"
-        >
-
-      </div>
-
-      <div class="memory-copy">
-
-        <span class="number">
-          04
-        </span>
-
-        <h3>
-          Todos a booordooo!!
-        </h3>
-
-        <p>
-          Não importa muito o lugar. Se você está comigo,
-          qualquer cenário ganha um significado diferente. Vamos navengando juntos nesse oceano que é a vida.
-        </p>
-
-      </div>
-
-    </article>
-
-
-    <!-- 05 -->
-
-    <article class="memory reveal">
-
-      <div class="photo-wrap">
-
-        <img
-          src="imagens/recordacao-06.jpg"
-          alt="Nós dois"
-          loading="lazy"
-        >
-
-      </div>
-
-      <div class="memory-copy">
-
-        <span class="number">
-          05
-        </span>
-
-        <h3>
-          Nós dois
-        </h3>
-
-        <p>
-          Tem coisa que fotografia nenhuma consegue explicar.
-          O olhar, a cumplicidade e a sensação de estar
-          exatamente onde eu queria estar.
-        </p>
-
-      </div>
-
-    </article>
-
-
-    <!-- 06 -->
-
-    <article class="memory reveal">
-
-      <div class="photo-wrap">
-
-        <img
-          src="imagens/recordacao-07.jpg"
-          alt="Estar com você é revigorante"
-          loading="lazy"
-        >
-
-      </div>
-
-      <div class="memory-copy">
-
-        <span class="number">
-          06
-        </span>
-
-        <h3>
+<nav
+ class="top-nav"
+ id="topNav"
+ aria-label="Navegação"
+>
+<a
+   href="#inicio"
+   title="Início"
+>
+   ♡
+</a>
+<a
+   href="#historia"
+   title="Nossa história"
+>
+   17
+</a>
+<a
+   href="#nossa-musica"
+   title="Nossa música"
+>
+   ♫
+</a>
+<a
+   href="#carta"
+   title="Carta"
+>
+   ✉
+</a>
+<a
+   href="#final"
+   title="Final"
+>
+   ♥
+</a>
+</nav>
+
+<!-- =====================================================
+    HERO
+===================================================== -->
+<section
+ class="hero"
+ id="inicio"
+>
+<div class="hero-inner">
+
+<div class="hero-copy">
+<div class="kicker">
+       Uma pequena declaração para você
+</div>
+<h1>
+       Paula Massetti
+<br>
+<span style="font-size:.72em">
+&amp;
+</span>
+       Mayron Cutrim
+</h1>
+<h2>
+       Entre tantos caminhos, encontros e momentos,
+       a melhor parte da minha história é poder viver
+       tudo isso ao seu lado.
+</h2>
+<div class="signature">
+       Com amor, Mayron ♡
+</div>
+<a
+       class="audio-nav"
+       href="#nossa-musica"
+>
+       Ouvir nossa música ↓
+</a>
+</div>
+
+<div class="hero-photo">
+<img
+       src="imagens/recordacao-01.jpg"
+       alt="Paula e Mayron juntos"
+>
+</div>
+</div>
+
+<div class="scroll">
+   role para lembrar da gente ↓
+</div>
+</section>
+
+<!-- =====================================================
+    HISTÓRIA
+===================================================== -->
+<section
+ class="section"
+ id="historia"
+>
+<div class="container center">
+<div class="eyebrow">
+     Nossa história em fotografias
+</div>
+<h2>
+     Momentos que eu guardaria para sempre.
+</h2>
+<div class="heart-line">
+     ♥
+</div>
+<p class="lead">
+     Cada foto aqui é só um pedacinho daquilo que sinto.
+     Porque o que eu mais gosto não é apenas lembrar do
+     que vivemos, é pensar em tudo que ainda vamos viver.
+</p>
+</div>
+
+<div class="container gallery">
+
+<!-- 01 -->
+<article class="memory reveal">
+<div class="photo-wrap">
+<img
+         src="imagens/recordacao-02.jpg"
+         alt="Primeiro evento juntos"
+         loading="lazy"
+>
+</div>
+<div class="memory-copy">
+<span class="number">
+         01
+</span>
+<h3>
+         Primeiro evento juntos
+</h3>
+<p>
+         Alguns momentos parecem simples na hora em que
+         acontecem. Depois, viram parte da nossa história
+         para sempre. Eu chegando "atrasado" e tu brigando
+         comigo porque não levei um blaze kkkkk.
+</p>
+</div>
+</article>
+
+<!-- 02 -->
+<article class="memory reveal">
+<div class="photo-wrap">
+<img
+         src="imagens/recordacao-03.jpg"
+         alt="Dia de gargalhadas"
+         loading="lazy"
+>
+</div>
+<div class="memory-copy">
+<span class="number">
+         02
+</span>
+<h3>
+         Dia de gargalhadas
+</h3>
+<p>
+         Eu gosto de você nas grandes aventuras e também
+         nos pequenos detalhes que só quem ama de verdade
+         aprende a perceber. A gente gastando quase
+         R$ 300,00 para ir ver um evento no circo...
+         mas valeu MUITOOO a pena só de ver cada sorriso seu.
+</p>
+</div>
+</article>
+
+<!-- 03 -->
+<article class="memory reveal">
+<div class="photo-wrap">
+<img
+         src="imagens/recordacao-04.jpg"
+         alt="Primeira corrida oficial juntos"
+         loading="lazy"
+>
+</div>
+<div class="memory-copy">
+<span class="number">
+         03
+</span>
+<h3>
+         Primeira corrida oficial juntos
+</h3>
+<p>
+         Entre sorrisos, viagens, abraços e aquele nosso
+         jeito de aproveitar a vida, fomos construindo
+         uma história só nossa. Nossa primeira corrida
+         oficial juntos, com um pace de tartaruga kkkkk.
+</p>
+</div>
+</article>
+
+<!-- 04 -->
+<article class="memory reveal">
+<div class="photo-wrap">
+<img
+         src="imagens/recordacao-05.jpg"
+         alt="Todos a bordo"
+         loading="lazy"
+>
+</div>
+<div class="memory-copy">
+<span class="number">
+         04
+</span>
+<h3>
+         Todos a booordooo!!
+</h3>
+<p>
+         Não importa muito o lugar. Se você está comigo,
+         qualquer cenário ganha um significado diferente.
+         Vamos navegando juntos nesse oceano que é a vida.
+</p>
+</div>
+</article>
+
+<!-- 05 -->
+<article class="memory reveal">
+<div class="photo-wrap">
+<img
+         src="imagens/recordacao-06.jpg"
+         alt="Nós dois"
+         loading="lazy"
+>
+</div>
+<div class="memory-copy">
+<span class="number">
+         05
+</span>
+<h3>
+         Nós dois
+</h3>
+<p>
+         Tem coisa que fotografia nenhuma consegue explicar.
+         O olhar, a cumplicidade e a sensação de estar
+         exatamente onde eu queria estar.
+</p>
+</div>
+</article>
+
+<!-- 06 -->
+<article class="memory reveal">
+<div class="photo-wrap">
+<img
+         src="imagens/recordacao-07.jpg"
+         alt="Estar com você é revigorante"
+         loading="lazy"
+>
+</div>
+<div class="memory-copy">
+<span class="number">
+         06
+</span>
+<h3>
          Estar com você é revigorante
-        </h3>
-
-        <p>
-          Nossas aventuras e momentos juntos me renovam sempre.
-        </p>
-
-      </div>
-
-    </article>
-
-
-    <!-- 07 -->
-
-    <article class="memory reveal">
-
-      <div class="photo-wrap">
-
-        <img
-          src="imagens/recordacao-08.jpg"
-          alt="Ainda temos tanto para viver"
-          loading="lazy"
-        >
-
-      </div>
-
-      <div class="memory-copy">
-
-        <span class="number">
-          07
-        </span>
-
-        <h3>
-          Ainda temos tanto para viver
-        </h3>
-
-        <p>
-          Quero continuar colecionando viagens, comidas,
-          risadas, planos, fotos ruins, fotos lindas e
-          momentos que só nós dois vamos entender.
-        </p>
-
-      </div>
-
-    </article>
-
-
-    <!-- 08 -->
-
-    <article class="memory reveal">
-
-      <div class="photo-wrap">
-
-        <img
-          src="imagens/recordacao-09.jpg"
-          alt="Meu lugar favorito"
-          loading="lazy"
-        >
-
-      </div>
-
-      <div class="memory-copy">
-
-        <span class="number">
-          08
-        </span>
-
-        <h3>
-          Meu lugar favorito
-        </h3>
-
-        <p>
-          No fim das contas, meu lugar favorito não é uma
-          cidade, uma praia ou um restaurante. É perto de você.
-        </p>
-
-      </div>
-
-    </article>
-
-
-    <!-- 09 -->
-
-    <article class="memory reveal">
-
-      <div class="photo-wrap">
-
-        <img
-          src="imagens/recordacao-10.jpg"
-          alt="A gente, sem roteiro"
-          loading="lazy"
-        >
-
-      </div>
-
-      <div class="memory-copy">
-
-        <span class="number">
-          09
-        </span>
-
-        <h3>
-          A gente, sem roteiro
-        </h3>
-
-        <p>
-          Algumas das melhores lembranças são justamente
-          aquelas sem planejamento: um sofá, uma risada,
-          um abraço e a certeza de que eu estava feliz
-          por estar com você.
-        </p>
-
-      </div>
-
-    </article>
-
-
-    <!-- 10 -->
-
-    <article class="memory reveal">
-
-      <div class="photo-wrap">
-
-        <img
-          src="imagens/recordacao-11.jpg"
-          alt="Nosso jeito"
-          loading="lazy"
-        >
-
-      </div>
-
-      <div class="memory-copy">
-
-        <span class="number">
-          10
-        </span>
-
-        <h3>
-          Nosso jeito
-        </h3>
-
-        <p>
-          Temos nosso próprio jeito de demonstrar carinho.
-          Às vezes é um olhar, às vezes uma brincadeira,
-          às vezes simplesmente ficar juntinhos.
-        </p>
-
-      </div>
-
-    </article>
-
-
-    <!-- 11 -->
-
-    <article class="memory reveal">
-
-      <div class="photo-wrap">
-
-        <img
-          src="imagens/recordacao-12.jpg"
-          alt="Focados juntos, vamos construindo nossa vida"
-          loading="lazy"
-        >
-
-      </div>
-
-      <div class="memory-copy">
-
-        <span class="number">
-          11
-        </span>
-
-        <h3>
-          Focados juntos, vamos construindo nossa vida
-        </h3>
-
-        <p>
-          Eu amo perceber que juntos estamos compartilhando rotina, aprendendo e crescendo um com o outro.
-        </p>
-
-      </div>
-
-    </article>
-
-
-    <!-- 12 -->
-
-    <article class="memory reveal">
-
-      <div class="photo-wrap">
-
-        <img
-          src="imagens/recordacao-13.jpg"
-          alt="Risadas boas"
-          loading="lazy"
-        >
-
-      </div>
-
-      <div class="memory-copy">
-
-        <span class="number">
-          12
-        </span>
-
-        <h3>
-          Risadas boas
-        </h3>
-
-        <p>
-          Entre uma risada e outra, mais uma lembrança
-          simples que ganhou um lugar especial na nossa história.
-        </p>
-
-      </div>
-
-    </article>
-
-
-    <!-- 13 -->
-
-    <article class="memory reveal">
-
-      <div class="photo-wrap">
-
-        <img
-          src="imagens/recordacao-14.jpg"
-          alt="Um dia de conquista — Paula e Mayron"
-          loading="lazy"
-        >
-
-      </div>
-
-      <div class="memory-copy">
-
-        <span class="number">
-          13
-        </span>
-
-        <h3>
-          Um dia de conquista
-        </h3>
-
-        <p>
-          Um daqueles dias que representam uma etapa
-          importante e ficam ainda mais especiais quando
-          temos alguém querido ao nosso lado.
-        </p>
-
-      </div>
-
-    </article>
-
-
-    <!-- 14 -->
-
-    <article class="memory reveal">
-
-      <div class="photo-wrap">
-
-        <img
-          src="imagens/recordacao-15.jpg"
-          alt="Nós dois, do nosso jeito — Paula e Mayron"
-          loading="lazy"
-        >
-
-      </div>
-
-      <div class="memory-copy">
-
-        <span class="number">
-          14
-        </span>
-
-        <h3>
-          Nós dois, do nosso jeito
-        </h3>
-
-        <p>
-          Mais um daqueles momentos que eu escolheria
-          guardar para sempre: nós dois, juntos,
-          aproveitando a vida.
-        </p>
-
-      </div>
-
-    </article>
-
-
-    <!-- 15 -->
-
-    <article class="memory reveal">
-
-      <div class="photo-wrap">
-
-        <img
-          src="imagens/recordacao-16.jpg"
-          alt="Nosso primeiro Ano novo — Paula e Mayron"
-          loading="lazy"
-        >
-
-      </div>
-
-      <div class="memory-copy">
-
-        <span class="number">
-          15
-        </span>
-
-        <h3>
-          Nosso primeiro Ano novo
-        </h3>
-
-        <p>
-          2025. Nosso primeiro Réveillon, o primeiro de muitos que pretendo viver com você.
-        </p>
-
-      </div>
-
-    </article>
-
-
-    <!-- 16 -->
-
-    <article class="memory reveal">
-
-      <div class="photo-wrap">
-
-        <img
-          src="imagens/recordacao-17.jpg"
-          alt="Primeira estrada juntos — Paula e Mayron"
-          loading="lazy"
-        >
-
-      </div>
-
-      <div class="memory-copy">
-
-        <span class="number">
-          16
-        </span>
-
-        <h3>
-          Primeira estrada juntos
-        </h3>
-
-        <p>
-          Nossa primeira viagem juntos, Furamos o pneu, tu quase deu PT e quase fomos virados para o trabalho, mas deu tudo certo e conseguimos ir e voltar em segurança kkkkk.
-        </p>
-
-      </div>
-
-    </article>
-
-     <!-- 17 -->
-
-    <article class="memory reveal">
-
-      <div class="photo-wrap">
-
-        <img
-          src="imagens/recordacao-19.jpg"
-          alt="Um carinho — Paula e Mayron"
-          loading="lazy"
-        >
-
-      </div>
-
-      <div class="memory-copy">
-
-        <span class="number">
-          17
-        </span>
-
-        <h3>
-          Um carinho
-        </h3>
-
-        <p>
-          Uma foto que acho muito especial e de um momento mais especial ainda. Candy te pedindo comida kkkk.
-        </p>
-
-      </div>
-
-    </article>
-    
-  </div>
-
+</h3>
+<p>
+         Nossas aventuras e momentos juntos me renovam sempre.
+</p>
+</div>
+</article>
+
+<!-- 07 -->
+<article class="memory reveal">
+<div class="photo-wrap">
+<img
+         src="imagens/recordacao-08.jpg"
+         alt="Ainda temos tanto para viver"
+         loading="lazy"
+>
+</div>
+<div class="memory-copy">
+<span class="number">
+         07
+</span>
+<h3>
+         Ainda temos tanto para viver
+</h3>
+<p>
+         Quero continuar colecionando viagens, comidas,
+         risadas, planos, fotos ruins, fotos lindas e
+         momentos que só nós dois vamos entender.
+</p>
+</div>
+</article>
+
+<!-- 08 -->
+<article class="memory reveal">
+<div class="photo-wrap">
+<img
+         src="imagens/recordacao-09.jpg"
+         alt="Meu lugar favorito"
+         loading="lazy"
+>
+</div>
+<div class="memory-copy">
+<span class="number">
+         08
+</span>
+<h3>
+         Meu lugar favorito
+</h3>
+<p>
+         No fim das contas, meu lugar favorito não é uma
+         cidade, uma praia ou um restaurante. É perto de você.
+</p>
+</div>
+</article>
+
+<!-- 09 -->
+<article class="memory reveal">
+<div class="photo-wrap">
+<img
+         src="imagens/recordacao-10.jpg"
+         alt="A gente, sem roteiro"
+         loading="lazy"
+>
+</div>
+<div class="memory-copy">
+<span class="number">
+         09
+</span>
+<h3>
+         A gente, sem roteiro
+</h3>
+<p>
+         Algumas das melhores lembranças são justamente
+         aquelas sem planejamento: um sofá, uma risada,
+         um abraço e a certeza de que eu estava feliz
+         por estar com você.
+</p>
+</div>
+</article>
+
+<!-- 10 -->
+<article class="memory reveal">
+<div class="photo-wrap">
+<img
+         src="imagens/recordacao-11.jpg"
+         alt="Nosso jeito"
+         loading="lazy"
+>
+</div>
+<div class="memory-copy">
+<span class="number">
+         10
+</span>
+<h3>
+         Nosso jeito
+</h3>
+<p>
+         Temos nosso próprio jeito de demonstrar carinho.
+         Às vezes é um olhar, às vezes uma brincadeira,
+         às vezes simplesmente ficar juntinhos.
+</p>
+</div>
+</article>
+
+<!-- 11 -->
+<article class="memory reveal">
+<div class="photo-wrap">
+<img
+         src="imagens/recordacao-12.jpg"
+         alt="Focados juntos, vamos construindo nossa vida"
+         loading="lazy"
+>
+</div>
+<div class="memory-copy">
+<span class="number">
+         11
+</span>
+<h3>
+         Focados juntos, vamos construindo nossa vida
+</h3>
+<p>
+         Eu amo perceber que juntos estamos compartilhando
+         rotina, aprendendo e crescendo um com o outro.
+</p>
+</div>
+</article>
+
+<!-- 12 -->
+<article class="memory reveal">
+<div class="photo-wrap">
+<img
+         src="imagens/recordacao-13.jpg"
+         alt="Risadas boas"
+         loading="lazy"
+>
+</div>
+<div class="memory-copy">
+<span class="number">
+         12
+</span>
+<h3>
+         Risadas boas
+</h3>
+<p>
+         Entre uma risada e outra, mais uma lembrança
+         simples que ganhou um lugar especial na nossa história.
+</p>
+</div>
+</article>
+
+<!-- 13 -->
+<article class="memory reveal">
+<div class="photo-wrap">
+<img
+         src="imagens/recordacao-14.jpg"
+         alt="Um dia de conquista"
+         loading="lazy"
+>
+</div>
+<div class="memory-copy">
+<span class="number">
+         13
+</span>
+<h3>
+         Um dia de conquista
+</h3>
+<p>
+         Um daqueles dias que representam uma etapa
+         importante e ficam ainda mais especiais quando
+         temos alguém querido ao nosso lado.
+</p>
+</div>
+</article>
+
+<!-- 14 -->
+<article class="memory reveal">
+<div class="photo-wrap">
+<img
+         src="imagens/recordacao-15.jpg"
+         alt="Nós dois, do nosso jeito"
+         loading="lazy"
+>
+</div>
+<div class="memory-copy">
+<span class="number">
+         14
+</span>
+<h3>
+         Nós dois, do nosso jeito
+</h3>
+<p>
+         Mais um daqueles momentos que eu escolheria
+         guardar para sempre: nós dois, juntos,
+         aproveitando a vida.
+</p>
+</div>
+</article>
+
+<!-- 15 -->
+<article class="memory reveal">
+<div class="photo-wrap">
+<img
+         src="imagens/recordacao-16.jpg"
+         alt="Nosso primeiro Ano novo"
+         loading="lazy"
+>
+</div>
+<div class="memory-copy">
+<span class="number">
+         15
+</span>
+<h3>
+         Nosso primeiro Ano novo
+</h3>
+<p>
+         2025. Nosso primeiro Réveillon, o primeiro de muitos
+         que pretendo viver com você.
+</p>
+</div>
+</article>
+
+<!-- 16 -->
+<article class="memory reveal">
+<div class="photo-wrap">
+<img
+         src="imagens/recordacao-17.jpg"
+         alt="Primeira estrada juntos"
+         loading="lazy"
+>
+</div>
+<div class="memory-copy">
+<span class="number">
+         16
+</span>
+<h3>
+         Primeira estrada juntos
+</h3>
+<p>
+         Nossa primeira viagem juntos. Furamos o pneu,
+         tu quase deu PT e quase fomos virados para o
+         trabalho, mas deu tudo certo e conseguimos ir
+         e voltar em segurança kkkkk.
+</p>
+</div>
+</article>
+
+<!-- 17 -->
+<article class="memory reveal">
+<div class="photo-wrap">
+<img
+         src="imagens/recordacao-19.jpg"
+         alt="Um carinho"
+         loading="lazy"
+>
+</div>
+<div class="memory-copy">
+<span class="number">
+         17
+</span>
+<h3>
+         Um carinho
+</h3>
+<p>
+         Uma foto que acho muito especial e de um momento
+         mais especial ainda. Candy te pedindo comida kkkk.
+</p>
+</div>
+</article>
+
+</div>
 </section>
 
-
 <!-- =====================================================
-     MÚSICA
+    MÚSICA
 ===================================================== -->
-
-<section class="audio-memory" id="nossa-musica">
-
-  <div class="audio-card reveal">
-
-    <div class="eyebrow">
-      Uma aba especial só nossa
-    </div>
-
-    <h2>
-      Paula Massetti
-    </h2>
-
-    <p>
-      Uma música para acompanhar essas lembranças
-      e deixar este cantinho ainda mais nosso.
-    </p>
-
-    <audio
-      class="audio-player"
-      controls
-      preload="metadata"
-    >
-
-      <source
-        src="audio/Paula Massetti ❤️.mp3.mpeg"
-        type="audio/mpeg"
-      >
-
-      Seu navegador não suporta reprodução de áudio.
-
-    </audio>
-
-    <p class="audio-note">
-      Dê o play e continue a recordação.
-    </p>
-
-  </div>
-
+<section
+ class="audio-memory"
+ id="nossa-musica"
+>
+<div class="audio-card reveal">
+<div class="eyebrow">
+     Uma aba especial só nossa
+</div>
+<h2>
+     Paula Massetti
+</h2>
+<p>
+     Uma música para acompanhar essas lembranças
+     e deixar este cantinho ainda mais nosso.
+</p>
+<audio
+     class="audio-player"
+     id="mainAudio"
+     controls
+     preload="metadata"
+>
+<source
+       src="audio/Paula Massetti ❤️.mp3.mpeg"
+       type="audio/mpeg"
+>
+     Seu navegador não suporta reprodução de áudio.
+</audio>
+<p class="audio-note">
+     Dê o play e continue a recordação.
+</p>
+</div>
 </section>
 
-
 <!-- =====================================================
-     HOMENAGEM
+    HOMENAGEM
 ===================================================== -->
-
 <section class="tribute">
+<div class="tribute-inner">
 
-  <div class="tribute-inner">
+<div class="tribute-photo reveal">
+<img
+       src="imagens/recordacao-18.jpg"
+       alt="Foto de Mayron com Paula e a mãe dela"
+       loading="lazy"
+>
+</div>
 
-    <div class="tribute-photo">
-
-      <img
-        src="imagens/recordacao-18.jpg"
-        alt="Foto de Mayron com Paula e a mãe dela"
-        loading="lazy"
-      >
-
-    </div>
-
-
-    <div class="tribute-copy">
-
-      <div class="eyebrow">
-        Uma lembrança que merece um lugar especial
-      </div>
-
-      <h2>
-        Para você e para ela.
-      </h2>
-
-      <p>
-        Paula, entre todas as lembranças que guardamos,
-        existe uma que tem um significado diferente.
-        Essa foi a única foto que consegui tirar com
-        a sua mãe em vida.
-      </p>
-
-      <p>
-        Eu sei que nenhuma fotografia é capaz de substituir
-        a presença de alguém tão importante. Mas, de alguma
-        forma, gosto de pensar que essa imagem guarda um
-        pedacinho daquele momento, da família reunida e de
-        uma pessoa que fez e faz parte da sua história e,
-        por isso, também passou a fazer parte da minha.
-      </p>
-
-      <p>
-        Tenho carinho e respeito por essa lembrança.
-        E quero que você saiba que, sempre que eu olhar
-        para essa foto, vou lembrar não apenas da saudade,
-        mas também da importância que ela teve e sempre
-        terá nas nossas vidas.
-      </p>
-
-      <p class="tribute-sign">
-        Que essa lembrança permaneça para sempre.
-        Wane Massetti ❤️
-      </p>
-
-    </div>
-
-  </div>
-
+<div class="tribute-copy reveal">
+<div class="eyebrow">
+       Uma lembrança que merece um lugar especial
+</div>
+<h2>
+       Para você e para ela.
+</h2>
+<p>
+       Paula, entre todas as lembranças que guardamos,
+       existe uma que tem um significado diferente.
+       Essa foi a única foto que consegui tirar com
+       a sua mãe em vida.
+</p>
+<p>
+       Eu sei que nenhuma fotografia é capaz de substituir
+       a presença de alguém tão importante. Mas, de alguma
+       forma, gosto de pensar que essa imagem guarda um
+       pedacinho daquele momento, da família reunida e de
+       uma pessoa que fez e faz parte da sua história e,
+       por isso, também passou a fazer parte da minha.
+</p>
+<p>
+       Tenho carinho e respeito por essa lembrança.
+       E quero que você saiba que, sempre que eu olhar
+       para essa foto, vou lembrar não apenas da saudade,
+       mas também da importância que ela teve e sempre
+       terá nas nossas vidas.
+</p>
+<p class="tribute-sign">
+       Que essa lembrança permaneça para sempre.
+       Wane Massetti ❤️
+</p>
+</div>
+</div>
 </section>
-
 
 <!-- =====================================================
-     CARTA
+    CARTA
 ===================================================== -->
-
-<section class="letter">
-
-  <div class="letter-card">
-
-    <div class="eyebrow">
-      Coloquei somente 17 fotos, pois acho que esse é um número que de alguma forma está presente bastante em nossas vidas, mas depois de tudo isso, ainda tenho uma coisa para te dizer
-    </div>
-
-    <h2 class="big">
-      Paula, eu escolheria você de novo.
-    </h2>
-
-    <p>
-      Eu poderia tentar escrever um texto perfeito,
-      mas talvez o mais bonito seja simplesmente
-      dizer a verdade.
-    </p>
-
-    <p>
-      Eu amo o jeito como você faz os dias comuns
-      parecerem especiais. Amo nossas risadas,
-      nossos passeios, nossas viagens, nossas conversas
-      e até aquelas pequenas coisas que provavelmente
-      ninguém mais entenderia.
-    </p>
-
-    <p>
-      Gosto de olhar para trás e perceber quantas
-      lembranças já construímos juntos. E gosto ainda
-      mais de olhar para frente e imaginar todas as
-      outras que ainda estão esperando por nós.
-    </p>
-
-    <p>
-      Obrigado por ser você. Por dividir sua vida comigo,
-      por me permitir conhecer seus sonhos, suas manias,
-      seus sorrisos e cada uma das suas versões.
-    </p>
-
-    <p>
-      Se algum dia eu esquecer de dizer, espero que
-      essas fotos lembrem por mim:
-      <strong>
-        você é muito especial para mim.
-      </strong>
-    </p>
-
-    <p style="text-align:right;margin-top:35px">
-
-      Com todo meu amor,
-
-      <br>
-
-      <strong>
-        Mayron
-      </strong>
-
-      ❤️
-
-    </p>
-
-  </div>
-
+<section
+ class="letter"
+ id="carta"
+>
+<div class="letter-card reveal">
+<div class="eyebrow">
+     Coloquei somente 17 fotos, pois acho que esse é um
+     número que de alguma forma está presente bastante
+     em nossas vidas, mas depois de tudo isso, ainda tenho
+     uma coisa para te dizer
+</div>
+<h2 class="big">
+     Paula, eu escolheria você de novo.
+</h2>
+<p>
+     Eu poderia tentar escrever um texto perfeito,
+     mas talvez o mais bonito seja simplesmente
+     dizer a verdade.
+</p>
+<p>
+     Eu amo o jeito como você faz os dias comuns
+     parecerem especiais. Amo nossas risadas,
+     nossos passeios, nossas viagens, nossas conversas
+     e até aquelas pequenas coisas que provavelmente
+     ninguém mais entenderia.
+</p>
+<p>
+     Gosto de olhar para trás e perceber quantas
+     lembranças já construímos juntos. E gosto ainda
+     mais de olhar para frente e imaginar todas as
+     outras que ainda estão esperando por nós.
+</p>
+<p>
+     Obrigado por ser você. Por dividir sua vida comigo,
+     por me permitir conhecer seus sonhos, suas manias,
+     seus sorrisos e cada uma das suas versões.
+</p>
+<p>
+     Se algum dia eu esquecer de dizer, espero que
+     essas fotos lembrem por mim:
+<strong>
+       você é muito especial para mim.
+</strong>
+</p>
+<p
+     style="
+       text-align:right;
+       margin-top:35px;
+     "
+>
+     Com todo meu amor,
+<br>
+<strong>
+       Mayron
+</strong>
+     ❤️
+</p>
+</div>
 </section>
-
 
 <!-- =====================================================
-     FINAL
+    FINAL
 ===================================================== -->
-
-<section class="ending">
-
-  <div>
-
-    <div class="final-heart">
-      ♥
-    </div>
-
-    <div class="eyebrow">
-      E essa história continua...
-    </div>
-
-    <h2>
-      Eu &amp; você.
-    </h2>
-
-    <p>
-      Que a gente continue colecionando lugares,
-      viagens, abraços, fotos e motivos para
-      sorrir juntos.
-    </p>
-
-    <p
-      style="
-        margin-top:38px;
-        color:var(--wine);
-        font-family:Georgia,serif;
-        font-size:1.3rem;
-      "
-    >
-      Paula, eu te amo.
-    </p>
-
-  </div>
-
+<section
+ class="ending"
+ id="final"
+>
+<div>
+<div class="final-heart">
+     ♥
+</div>
+<div class="eyebrow">
+     E essa história continua...
+</div>
+<h2>
+     Eu &amp; você.
+</h2>
+<p>
+     Que a gente continue colecionando lugares,
+     viagens, abraços, fotos e motivos para
+     sorrir juntos.
+</p>
+<p
+     style="
+       margin-top:38px;
+       color:var(--wine);
+       font-family:Georgia,serif;
+       font-size:1.3rem;
+     "
+>
+     Paula, eu te amo.
+</p>
+</div>
 </section>
-
 
 <footer>
-  Feito por Mayron, para Paula — com amor e muitas lembranças.
+ Feito por Mayron, para Paula — com amor e muitas lembranças.
 </footer>
 
+<!-- =====================================================
+    LIGHTBOX
+===================================================== -->
+<div
+ class="lightbox"
+ id="lightbox"
+ role="dialog"
+ aria-modal="true"
+ aria-label="Visualização da fotografia"
+>
+<div class="lightbox-content">
+<button
+     class="lightbox-close"
+     id="lightboxClose"
+     aria-label="Fechar"
+>
+     ×
+</button>
+<img
+     id="lightboxImage"
+     src=""
+     alt=""
+>
+</div>
+</div>
 
 <!-- =====================================================
-     JAVASCRIPT
+    BOTÃO DE MÚSICA
 ===================================================== -->
+<button
+ class="music-floating"
+ id="musicFloating"
+ aria-label="Reproduzir ou pausar música"
+>
+ ♫
+</button>
 
+<!-- =====================================================
+    JAVASCRIPT
+===================================================== -->
 <script>
-
-const obs = new IntersectionObserver(
-  (entries) => {
-
-    entries.forEach(e => {
-
-      if(e.isIntersecting) {
-
-        e.target.classList.add('show');
-
-        obs.unobserve(e.target);
-
-      }
-
-    });
-
-  },
-  {
-    threshold:.12
-  }
-);
+/* =====================================================
+  REVEAL
+===================================================== */
+const observer =
+ new IntersectionObserver(
+   entries => {
+     entries.forEach(entry => {
+       if(entry.isIntersecting) {
+         entry.target.classList.add("show");
+         observer.unobserve(entry.target);
+       }
+     });
+   },
+   {
+     threshold:.12
+   }
+ );
 
 document
-  .querySelectorAll('.reveal')
-  .forEach(el => obs.observe(el));
+ .querySelectorAll(".reveal")
+ .forEach(element => {
+   observer.observe(element);
+ });
 
+/* =====================================================
+  PROGRESSO DA PÁGINA
+===================================================== */
+const progressBar =
+ document.getElementById("progressBar");
+
+window.addEventListener(
+ "scroll",
+ () => {
+   const scrollTop =
+     window.scrollY;
+   const height =
+     document.documentElement.scrollHeight -
+     window.innerHeight;
+   const progress =
+     height > 0
+       ? (scrollTop / height) * 100
+       : 0;
+   progressBar.style.width =
+     progress + "%";
+ },
+ {
+   passive:true
+ }
+);
+
+/* =====================================================
+  NAVEGAÇÃO
+===================================================== */
+const topNav =
+ document.getElementById("topNav");
+
+window.addEventListener(
+ "scroll",
+ () => {
+   if(window.scrollY > window.innerHeight * .55) {
+     topNav.classList.add("visible");
+   } else {
+     topNav.classList.remove("visible");
+   }
+ },
+ {
+   passive:true
+ }
+);
+
+/* =====================================================
+  LIGHTBOX
+===================================================== */
+const lightbox =
+ document.getElementById("lightbox");
+const lightboxImage =
+ document.getElementById("lightboxImage");
+const lightboxClose =
+ document.getElementById("lightboxClose");
+
+document
+ .querySelectorAll(".photo-wrap img")
+ .forEach(img => {
+   img.parentElement.addEventListener(
+     "click",
+     () => {
+       lightboxImage.src =
+         img.src;
+       lightboxImage.alt =
+         img.alt;
+       lightbox.classList.add(
+         "active"
+       );
+       document.body.style.overflow =
+         "hidden";
+     }
+   );
+ });
+
+function closeLightbox() {
+ lightbox.classList.remove(
+   "active"
+ );
+ document.body.style.overflow =
+   "";
+}
+
+lightboxClose.addEventListener(
+ "click",
+ closeLightbox
+);
+
+lightbox.addEventListener(
+ "click",
+ event => {
+   if(event.target === lightbox) {
+     closeLightbox();
+   }
+ }
+);
+
+document.addEventListener(
+ "keydown",
+ event => {
+   if(
+     event.key === "Escape" &&
+     lightbox.classList.contains("active")
+   ) {
+     closeLightbox();
+   }
+ }
+);
+
+/* =====================================================
+  MÚSICA
+===================================================== */
+const audio =
+ document.getElementById("mainAudio");
+const musicButton =
+ document.getElementById("musicFloating");
+
+function updateMusicButton() {
+ if(audio.paused) {
+   musicButton.textContent =
+     "♫";
+   musicButton.classList.remove(
+     "playing"
+   );
+ } else {
+   musicButton.textContent =
+     "Ⅱ";
+   musicButton.classList.add(
+     "playing"
+   );
+ }
+}
+
+audio.addEventListener(
+ "play",
+ updateMusicButton
+);
+
+audio.addEventListener(
+ "pause",
+ updateMusicButton
+);
+
+musicButton.addEventListener(
+ "click",
+ () => {
+   if(audio.paused) {
+     audio.play();
+   } else {
+     audio.pause();
+   }
+ }
+);
+
+/* =====================================================
+  MOSTRAR BOTÃO DE MÚSICA
+===================================================== */
+const musicSection =
+ document.getElementById("nossa-musica");
+
+const musicObserver =
+ new IntersectionObserver(
+   entries => {
+     entries.forEach(entry => {
+       if(entry.isIntersecting) {
+         musicButton.classList.add(
+           "show"
+         );
+       } else if(
+         window.scrollY <
+         musicSection.offsetTop
+       ) {
+         musicButton.classList.remove(
+           "show"
+         );
+       }
+     });
+   },
+   {
+     threshold:.15
+   }
+ );
+
+musicObserver.observe(
+ musicSection
+);
+
+/* =====================================================
+  CORAÇÕES DISCRETOS
+===================================================== */
+let heartTimer = null;
+
+function createHeart() {
+ if(
+   document.hidden ||
+   window.matchMedia(
+     "(prefers-reduced-motion: reduce)"
+   ).matches
+ ) {
+   return;
+ }
+ const heart =
+   document.createElement("div");
+ heart.className =
+   "floating-heart";
+ heart.textContent =
+   Math.random() > .5
+     ? "♡"
+     : "♥";
+ heart.style.left =
+   Math.random() * 100 + "vw";
+ heart.style.bottom =
+   "-30px";
+ heart.style.fontSize =
+   (12 + Math.random() * 12) + "px";
+ heart.style.animationDuration =
+   (6 + Math.random() * 4) + "s";
+ document.body.appendChild(
+   heart
+ );
+ setTimeout(
+   () => heart.remove(),
+   10000
+ );
+}
+
+heartTimer =
+ setInterval(
+   createHeart,
+   6500
+ );
+
+/* =====================================================
+  CORAÇÃO AO CLICAR NO FINAL
+===================================================== */
+const finalSection =
+ document.getElementById("final");
+
+let finalTriggered = false;
+
+const finalObserver =
+ new IntersectionObserver(
+   entries => {
+     entries.forEach(entry => {
+       if(
+         entry.isIntersecting &&
+         !finalTriggered
+       ) {
+         finalTriggered = true;
+         for(
+           let i = 0;
+           i < 8;
+           i++
+         ) {
+           setTimeout(
+             createHeart,
+             i * 220
+           );
+         }
+       }
+     });
+   },
+   {
+     threshold:.4
+   }
+ );
+
+finalObserver.observe(
+ finalSection
+);
+
+/* =====================================================
+  CORRIGE REPRODUÇÃO AO NAVEGAR
+===================================================== */
+document
+ .querySelectorAll('a[href^="#"]')
+ .forEach(link => {
+   link.addEventListener(
+     "click",
+     event => {
+       const target =
+         document.querySelector(
+           link.getAttribute("href")
+         );
+       if(target) {
+         event.preventDefault();
+         target.scrollIntoView({
+           behavior:"smooth",
+           block:"start"
+         });
+       }
+     }
+   );
+ });
 </script>
 
 </body>
